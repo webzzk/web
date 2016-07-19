@@ -1,0 +1,28 @@
+<div class="fd-bg fd-b5rf">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="b5rf-head-install" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install=='1'"></div>
+    <div class="frs001" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install=='1'" ng-click="ctOpen('In1Veh_B5RF_Conn_x_Install','2','b5rf')"></div>
+    <div class="b5rf-head-out" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install=='0'"></div>
+    <div class="frs002" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install=='0'&&pageServicePdata.b5rf_tearDown" ng-click="ctClose('In1Veh_B5RF_Conn_x_Install','1','b5rf')"></div>
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="frs007" title="1" wybredPosition="1" wybblackPosition="1" h_y="137" h_x="374" rqPosition="3265" h_href="b5rf" ></a>
+        <a class="frs008" title="2" wybredPosition="1" wybblackPosition="1" h_y="145" h_x="348" rqPosition="3267" h_href="b5rf" ></a>
+        <!--插座-->
+        <a class="frs005" title="1" wybredPosition="1" wybblackPosition="1"  h_y="284" h_x="185" rqPosition="4258" h_href="b5rf" ></a>
+        <a class="frs006" title="2" wybredPosition="1" wybblackPosition="1" h_y="276" h_x="210" rqPosition="4259" h_href="b5rf" ></a>
+    </div>
+    <div ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="frs003" title="1" wybredPosition="2" wybblackPosition="2" h_y="247" h_x="265" rqPosition="3266" h_href="b5rf" ></a>
+        <a class="frs004" title="2" wybredPosition="2" wybblackPosition="2" h_y="230" h_x="270" rqPosition="3268" h_href="b5rf" ></a>
+    </div>
+    <!--更换线束-->
+    <div id="bj-b5rf-line"  class="b5rf-line-hot csline" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install== '0'" ></div>
+    <div class="b5rf-line" status="bj-b5rf-line"></div>
+    <!--更换零件-->
+    <div class="b5rf-light" status="bj-b5rf" ng-show="!pageServicePdata.b5rf_tearDown"></div>
+    <div id="msg-b5rf" class="frs000 bj-b5rf" sata="Ttype-T30" ng-click="showMsg('msg-b5rf','请选择T30工具')" ng-show="pageServicePint.In1Veh_B5RF_Conn_x_Install== '0'&&pageServicePdata.b5rf_tearDown"></div>
+    <div  class="frs000 b5rf_install" ng-show="!pageServicePdata.b5rf_tearDown"></div>
+</div>

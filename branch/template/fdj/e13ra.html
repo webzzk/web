@@ -1,0 +1,27 @@
+<div class="fd-bg fd-e13ra" switches="s30swt-s78swt">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="e13ra-head-install" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install=='1'"></div>
+    <div class="rh001" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install=='1'" ng-click="ctOpen('In1Veh_E13RA_Conn_x_Install','2','e13ra')"></div>
+    <div class="e13ra-head-out" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install=='0'"></div>
+    <div class="rh002" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install=='0'&&pageServicePdata.e13ra_tearDown" ng-click="ctClose('In1Veh_E13RA_Conn_x_Install','1','e13ra')"></div>
+    <!--更换线束-->
+    <div id="bj-e13ra-line"  class="e13ra-line-hot line line" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install== '0'" ></div>
+    <div class="e13ra-line" status="bj-e13ra-line"></div>
+    <!--更换零件-->
+    <div class="e13ra-light" status="bj-e13ra" ng-show="!pageServicePdata.e13ra_tearDown"></div>
+    <div id="msg-e13ra" class="rh000 bj-e13ra" sata="hexagonal-10mm" ng-click="showMsg('msg-e13ra','请选择六角10MM套筒')" ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install== '0'&&pageServicePdata.e13ra_tearDown" title="排气凸轮轴位置传感器"></div>
+    <div  class="rh000 e13ra_install" ng-show="!pageServicePdata.e13ra_tearDown"></div>
+
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Veh_E13RA_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="rh015" title="1" wybredPosition="1" wybblackPosition="1" h_y="493" h_x="241" rqPosition="3051" h_href="e13ra" ></a>
+        <a class="rh016" title="2" wybredPosition="1" wybblackPosition="1" h_y="493" h_x="228" rqPosition="3053" h_href="e13ra" ></a>
+        <a class="rh017" title="3" wybredPosition="1" wybblackPosition="1" h_y="493" h_x="215" rqPosition="3055" h_href="e13ra" ></a>
+        <a class="rh018" title="4" wybredPosition="1" wybblackPosition="1" h_y="493" h_x="203" rqPosition="3057" h_href="e13ra" ></a>
+
+        <a class="rh023" title="9" wybredPosition="1" wybblackPosition="1" h_y="471" h_x="210" rqPosition="3059" h_href="e13ra" ></a>
+        <a class="rh024" title="10" wybredPosition="1" wybblackPosition="1" h_y="471" h_x="199" rqPosition="3061" h_href="e13ra" ></a>
+    </div>
+
+</div>

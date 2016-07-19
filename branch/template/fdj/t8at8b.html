@@ -1,0 +1,143 @@
+<div class="fd-bg fd-t8at8b">
+    <div class="fd-zz" ng-click="backPage('engine',400,260)"></div>
+
+    <!--点火线圈t8a开始-->
+    <div class="t8a-body-install" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='1'"></div><!--t8a点火线圈安装状态-->
+    <div class="t8a-body-ls-install" ng-show="!pageServicePdata.t8a_body_ls"></div><!--t8a点火线圈上安装的螺丝-->
+    <div class="t8a-body-ls-out" ng-show="pageServicePdata.t8a_body_ls"></div><!--t8a点火线圈上拔出的螺丝-->
+    <div id="msg-t8a" class="t8a-body-install-hot" title="t8a点火线圈" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='1'&&pageServicePint.In1Sen_T8A_Coil_x_Install=='0'" sata="hexagonal-10mm" ng-click="showMsg('msg-t8a','请选择六角10MM套筒')"></div><!--t8a点火线圈安装状态下的点击热区-->
+    <div class="t8a-body-zz" ng-show="pageServicePdata.t8a_body_zz"></div><!--t8a点火线圈拔出时页面的的遮挡-->
+    <div class="t8a-body-out-process"></div><!--t8a点火线圈拔出过程-->
+
+    <!--t8a点火线圈拔出后可拖动-->
+    <div id="t8a" class="t8a-body-out" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&pageServicePdata.t8a&&!pageServicePdata.t8a_test">
+        <div class="t8a-body-out-hot" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&pageServicePdata.onDrag&&pageServicePdata.gybwz!='1'" ng-click="dhxq_cs('.t8a')"></div>
+        <div class="t8a-test" ng-show="!pageServicePdata.t8a_test&&pageServicePdata.onDrag"></div><!--点火测试仪热区-->
+    </div>
+    <div class="t8a-installHot" num="1" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&!pageServicePdata.t8a&&pageServicePdata.gybwz!='1'"></div><!--从备件库或零件车拖出点火线圈放到t8a位置上的热区-->
+    <div class="t8a-head-install" ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install=='1'"></div><!--t8a点火线圈插头安装状态-->
+    <div class="t8a-head-install-hot" ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install=='1'" ng-click="ctOpen('In1Sen_T8A_Coil_x_Install','2','t8at8b')"></div><!--t8a点火线圈插头安装状态下的点击热区-->
+    <div class="t8a-head-out" ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install=='0'&&!pageServicePdata.t8a_test"></div><!--t8a点火线圈插头拔下状态-->
+    <div class="t8a-head-out-hot" ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install=='0'&&pageServicePint.In1Sen_T8A_Coil_Body_Install=='1'&&!pageServicePdata.t8a_test" ng-click="ctClose('In1Sen_T8A_Coil_x_Install','1','t8at8b')"></div><!--t8a点火线圈插头拔下状态下的点击热区-->
+
+    <!--t8a更换线束-->
+    <div id="bj-t8a-line" class="t8a-line-hot line" ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install== '0'" ></div>
+    <div class="t8a-line" status="bj-t8a-line"></div>
+
+    <!--t8a火花塞-->
+    <div class="t8a-hhs-install" ng-show="pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='1'"></div><!--t8a火花塞安装状态-->
+    <div id="msg-t8a-hhs" class="t8a-hhs-install-hot" title="t8a火花塞" ng-show="pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='1'&&pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'" ng-click="showMsg('msg-t8a-hhs','请选择火花塞套筒')"></div><!--t8a火花塞安装状态下的点击热区-->
+    <div class="t8a-hhs-out-process"><img src="images/sbt_engine/dhxq/hhs_out.png" width="80"/></div><!--t8a火花塞拔出过程-->
+    <!--t8a火花塞拔出后-->
+    <div id="t8a_hhs" class="t8a-hhs-out" ng-show="pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='0'&&pageServicePdata.t8a_hhs" >
+        <img src="images/sbt_engine/dhxq/hhs_out.png" width="80"/>
+        <div class="t8a-hhs-out-hot" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='0'&&pageServicePdata.onDrag&&pageServicePdata.gybwz!='1'" ng-click="hhs_cs('t8a')"></div><!--t8a火花塞拔出状态下的点击热区-->
+    </div>
+    <div class="t8aHhs-installHot" num="1" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='0'&&!pageServicePdata.t8a_hhs&&pageServicePdata.gybwz!='1'"></div><!--从备件库或零件车拖出火花塞放到t8a火花塞位置上的热区-->
+    <div class="test-t8a" ng-show="pageServicePdata.t8a_test">
+        <div class="fire4" ng-show="ignltionTestDeviceServiceOout.Out1Eng_SpPlugTest_Norm_x =='1'"> </div>
+        <div  class="coe4" ng-click="testHide('t8a');"></div>
+    </div><!--点火测试仪-->
+    <!--缸压表在t8a缸的安装热区-->
+    <div class="t8a-gangYaBiao-hot" ng-show="pageServicePint.In1Sen_T8A_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8A_SpPlug_Body_Install=='0'"></div>
+    <div class="t8a-gangYaBiao" ng-show="pageServicePdata.gybwz == '1'">
+        <div class="gangYaBiao-pointer" ng-show="cylpressguageServiceOdata.gybzz=='0'"></div>
+        <div class="coe" ng-click="closeGYB('.t8a-gangYaBiao');"></div>
+        <div class="gangYaBiao-pointer2" ng-show="cylpressguageServiceOdata.gybzz=='1'"></div>
+    </div>
+
+    <!--点火线圈t8a插头打开和本体热区-->
+    <div ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install== '0'">
+        <a class="ig103" title="1" wybredPosition="1" wybblackPosition="1" h_x="314" h_y="198" rqPosition="41" h_href="t8at8b" ></a>
+        <a class="ig104" title="2" wybredPosition="1" wybblackPosition="1" h_x="327" h_y="215" rqPosition="43" h_href="t8at8b" ></a>
+        <a class="ig105" title="3" wybredPosition="1" wybblackPosition="1" h_x="342" h_y="231" rqPosition="45" h_href="t8at8b" ></a>
+        <a class="ig106" title="4" wybredPosition="1" wybblackPosition="1" h_x="357" h_y="245" rqPosition="47" h_href="t8at8b" ></a>
+
+        <a class="ig107" title="1" wybredPosition="1" wybblackPosition="1" h_x="206" h_y="178" rqPosition="4037" h_href="t8at8b" ></a>
+        <a class="ig108" title="2" wybredPosition="1" wybblackPosition="1" h_x="225" h_y="178" rqPosition="4038" h_href="t8at8b" ></a>
+        <a class="ig109" title="3" wybredPosition="1" wybblackPosition="1" h_x="247" h_y="178" rqPosition="4039" h_href="t8at8b" ></a>
+        <a class="ig110" title="4" wybredPosition="1" wybblackPosition="1" h_x="269" h_y="177" rqPosition="4040" h_href="t8at8b" ></a>
+    </div>
+    <!--点火线圈t8a插头背部热区-->
+    <div ng-show="pageServicePint.In1Sen_T8A_Coil_x_Install== '1'">
+        <a class="ig111" title="1" wybredPosition="2" wybblackPosition="2" h_x="189" h_y="145" rqPosition="42" h_href="t8at8b" ></a>
+        <a class="ig112" title="2" wybredPosition="2" wybblackPosition="2" h_x="206" h_y="146" rqPosition="44" h_href="t8at8b" ></a>
+        <a class="ig113" title="3" wybredPosition="2" wybblackPosition="2" h_x="228" h_y="147" rqPosition="46" h_href="t8at8b" ></a>
+        <a class="ig114" title="4" wybredPosition="2" wybblackPosition="2" h_x="247" h_y="146" rqPosition="48" h_href="t8at8b" ></a>
+    </div>
+    <!--点火线圈t8a结束-->
+
+
+
+    <!--点火线圈t8b开始-->
+    <div class="t8b-body-install" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='1'"></div><!--t8b点火线圈安装状态-->
+    <div class="t8b-body-ls-install" ng-show="!pageServicePdata.t8b_body_ls"></div><!--t8b点火线圈上安装的螺丝-->
+    <div class="t8b-body-ls-out" ng-show="pageServicePdata.t8b_body_ls"></div><!--t8b点火线圈上拔出的螺丝-->
+    <div id="msg-t8b" class="t8b-body-install-hot" title="t8b点火线圈" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='1'&&pageServicePint.In1Sen_T8B_Coil_x_Install=='0'"  sata="hexagonal-10mm" ng-click="showMsg('msg-t8b','请选择10MM套筒');"></div><!--t8b点火线圈安装状态下的点击热区-->
+    <div class="t8b-body-zz" ng-show="pageServicePdata.t8b_body_zz"></div><!--t8b点火线圈拔出时页面的的遮挡-->
+    <div class="t8b-body-out-process"></div><!--t8b点火线圈拔出过程-->
+
+    <!--t8b点火线圈拔出后可拖动-->
+    <div id="t8b" class="t8b-body-out" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&pageServicePdata.t8b">
+        <div class="t8b-body-out-hot" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&pageServicePdata.onDrag&&pageServicePdata.gybwz!='2'" ng-click="dhxq_cs('.t8b')"></div>
+        <div class="t8b-test" ng-show="!pageServicePdata.t8b_test&&pageServicePdata.onDrag"></div><!--点火测试仪热区-->
+    </div>
+    <div class="t8b-installHot" num="2" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&!pageServicePdata.t8b&&pageServicePdata.gybwz!='2'"></div><!--从备件库或零件车拖出点火线圈放到t8b位置上的热区-->
+
+    <div class="t8b-head-install" ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install=='1'"></div><!--t8b点火线圈插头安装状态-->
+    <div class="t8b-head-install-hot" ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install=='1'" ng-click="ctOpen('In1Sen_T8B_Coil_x_Install','4','t8at8b')"></div><!--t8b点火线圈插头安装状态下的点击热区-->
+    <div class="t8b-head-out" ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install=='0'&&!pageServicePdata.t8b_test"></div><!--t8b点火线圈插头拔下状态-->
+    <div class="t8b-head-out-hot" ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install=='0'&&pageServicePint.In1Sen_T8B_Coil_Body_Install=='1'&&!pageServicePdata.t8b_test" ng-click="ctClose('In1Sen_T8B_Coil_x_Install','3','t8at8b')"></div><!--t8b点火线圈插头拔下状态下的点击热区-->
+
+    <!--t8b更换线束-->
+    <div id="bj-t8b-line" class="t8b-line-hot line" ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install== '0'" ></div>
+    <div class="t8b-line" status="bj-t8b-line"></div>
+
+    <!--t8b火花塞-->
+    <div class="t8b-hhs-install" ng-show="pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='1'"></div><!--t8b火花塞安装状态-->
+    <div id="msg-t8b-hhs" class="t8b-hhs-install-hot" title="t8b火花塞" ng-show="pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='1'&&pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'" ng-click="showMsg('msg-t8b-hhs','请选择火花塞套筒')"></div><!--t8b火花塞安装状态下的点击热区-->
+    <div class="t8b-hhs-out-process"><img src="images/sbt_engine/dhxq/hhs_out.png" width="80"/></div><!--t8b火花塞拔出过程-->
+    <!--t8b火花塞拔出后-->
+    <div id="t8b_hhs" class="t8b-hhs-out" ng-show="pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='0'&&pageServicePdata.t8b_hhs">
+        <img  src="images/sbt_engine/dhxq/hhs_out.png" width="80"/>
+        <div  class="t8b-hhs-out-hot" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='0'&&pageServicePdata.onDrag&&pageServicePdata.gybwz!='2'" ng-click="hhs_cs('t8b')"></div><!--t8b火花塞拔出状态下的点击热区-->
+    </div>
+    <div class="t8bHhs-installHot" num="2" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='0'&&!pageServicePdata.t8b_hhs&&pageServicePdata.gybwz!='2'"></div><!--从备件库或零件车拖出火花塞放到t8b火花塞位置上的热区-->
+    <div class="test-t8b" ng-show="pageServicePdata.t8b_test">
+        <div class="fire2" ng-show="ignltionTestDeviceServiceOout.Out1Eng_SpPlugTest_Norm_x =='1'"></div>
+        <div  class="coe5" ng-click="testHide('t8b');"></div>
+    </div><!--点火测试仪-->
+    <!--缸压表在t8b缸的安装热区-->
+    <div class="t8b-gangYaBiao-hot" ng-show="pageServicePint.In1Sen_T8B_Coil_Body_Install=='0'&&pageServicePint.In1Sen_T8B_SpPlug_Body_Install=='0'"></div>
+    <div class="t8b-gangYaBiao" ng-show="pageServicePdata.gybwz=='2'">
+        <div class="gangYaBiao-pointer" ng-show="cylpressguageServiceOdata.gybzz=='0'"></div>
+        <div class="coe" ng-click="closeGYB('.t8b-gangYaBiao');"></div>
+        <div class="gangYaBiao-pointer2" ng-show="cylpressguageServiceOdata.gybzz=='1'"></div>
+    </div>
+
+    <!--点火线圈t8b插头打开和本体热区-->
+    <div ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install== '0'">
+        <a class="ig203" title="1" wybredPosition="3" wybblackPosition="3" h_x="355" h_y="626" rqPosition="49" h_href="t8at8b" ></a>
+        <a class="ig204" title="2" wybredPosition="3" wybblackPosition="3" h_x="373" h_y="620" rqPosition="51" h_href="t8at8b" ></a>
+        <a class="ig205" title="3" wybredPosition="3" wybblackPosition="3" h_x="402" h_y="616" rqPosition="53" h_href="t8at8b" ></a>
+        <a class="ig206" title="4" wybredPosition="3" wybblackPosition="3" h_x="417" h_y="610" rqPosition="55" h_href="t8at8b" ></a>
+
+        <a class="ig207" title="1" wybredPosition="3" wybblackPosition="3" h_x="185" h_y="602" rqPosition="4041" h_href="t8at8b" ></a>
+        <a class="ig208" title="2" wybredPosition="3" wybblackPosition="3" h_x="206" h_y="606" rqPosition="4042" h_href="t8at8b" ></a>
+        <a class="ig209" title="3" wybredPosition="3" wybblackPosition="3" h_x="228" h_y="609" rqPosition="4043" h_href="t8at8b" ></a>
+        <a class="ig210" title="4" wybredPosition="3" wybblackPosition="3" h_x="250" h_y="611" rqPosition="4044" h_href="t8at8b" ></a>
+    </div>
+    <!--点火线圈t8b插头背部热区-->
+    <div ng-show="pageServicePint.In1Sen_T8B_Coil_x_Install== '1'">
+        <a class="ig211" title="1" wybredPosition="4" wybblackPosition="4" h_x="165" h_y="584" rqPosition="50" h_href="t8at8b" ></a>
+        <a class="ig212" title="2" wybredPosition="4" wybblackPosition="4" h_x="186" h_y="584" rqPosition="52" h_href="t8at8b" ></a>
+        <a class="ig213" title="3" wybredPosition="4" wybblackPosition="4" h_x="203" h_y="587" rqPosition="54" h_href="t8at8b" ></a>
+        <a class="ig214" title="4" wybredPosition="4" wybblackPosition="4" h_x="225" h_y="588" rqPosition="56" h_href="t8at8b" ></a>
+    </div>
+    <!--点火线圈t8b结束-->
+
+
+
+
+
+</div>

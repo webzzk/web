@@ -1,0 +1,31 @@
+<div class="fd-bg fd-q6e">
+    <div class="fd-zz" ng-click="backPage('engine',314,390)"></div>
+    <div class="q6e-head-install" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install=='1'"></div>
+    <div class="iv000" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_Q6E_Conn_x_Install','2','q6e')"></div>
+    <div class="q6e-head-out" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install=='0'"></div>
+    <div class="iv001" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install=='0'&&pageServicePdata.q6e_tearDown" ng-click="ctClose('In1Sen_Q6E_Conn_x_Install','1','q6e')"></div>
+    <!--更换零件-->
+    <div class="q6e-light" status="bj-q6e" ng-show="!pageServicePdata.q6e_tearDown"></div>
+    <div id="msg-q6e" class="iv002 bj-q6e" sata="hexagonal-10mm" ng-click="showMsg('msg-q6e','请选择六角10MM套筒')" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install== '0'&&pageServicePdata.q6e_tearDown" title="排气凸轮轴位置执行器"></div>
+    <div  class="iv002 q6e_install" ng-show="!pageServicePdata.q6e_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-q6e-line"  class="q6e-line-hot line line" ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install== '0'" ></div>
+    <div class="q6e-line" status="bj-q6e-line"></div>
+<!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="iv007" title="1" wybredPosition="1" wybblackPosition="1" h_y="598" h_x="378" rqPosition="2113" h_href="q6e" ></a>
+        <a class="iv008" title="2" wybredPosition="1" wybblackPosition="1" h_y="582" h_x="390" rqPosition="2115" h_href="q6e" ></a>
+        <!--插座-->
+        <div ng-show="pageServicePdata.q6e_tearDown">
+            <a class="iv005" title="1" wybredPosition="1" wybblackPosition="1" h_y="475" h_x="370" rqPosition="4065" h_href="q6e" ></a>
+            <a class="iv006" title="2" wybredPosition="1" wybblackPosition="1" h_y="471" h_x="386" rqPosition="4066" h_href="q6e" ></a>
+        </div>
+    </div>
+
+    <div ng-show="pageServicePint.In1Sen_Q6E_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="iv003" title="1" wybredPosition="2" wybblackPosition="2" h_y="494" h_x="380" rqPosition="2114" h_href="q6e" ></a>
+        <a class="iv004" title="2" wybredPosition="2" wybblackPosition="2" h_y="492" h_x="400" rqPosition="2116" h_href="q6e" ></a>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="fd-bg fd-q6f">
+    <div class="fd-zz" ng-click="backPage('engine',330,215)"></div>
+    <div class="q6f-head-install" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install=='1'"></div>
+    <div class="iv101" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_Q6F_Conn_x_Install','2','q6f')"></div>
+    <div class="q6f-head-out" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install=='0'"></div>
+    <div class="iv102" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install=='0'&&pageServicePdata.q6f_tearDown" ng-click="ctClose('In1Sen_Q6F_Conn_x_Install','1','q6f')"></div>
+    <!--更换零件-->
+    <div class="q6f-light" status="bj-q6f" ng-show="!pageServicePdata.q6f_tearDown"></div>
+    <div id="msg-q6f" class="iv100 bj-q6f" sata="hexagonal-10mm" ng-click="showMsg('msg-q6f','请选择六角10MM套筒')" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install== '0'&&pageServicePdata.q6f_tearDown" title="进气凸轮轴位置执行器"></div>
+    <div  class="iv100 q6f_install" ng-show="!pageServicePdata.q6f_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-q6f-line" class="q6f-line-hot line" ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install== '0'" ></div>
+    <div class="q6f-line" status="bj-q6f-line"></div>
+<!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install== '0'">
+<!--插头-->
+        <a class="iv107" title="1" wybredPosition="1" wybblackPosition="1" h_y="490" h_x="367" rqPosition="2105" h_href="q6f" ></a>
+        <a class="iv108" title="2" wybredPosition="1" wybblackPosition="1" h_y="506" h_x="348" rqPosition="2107" h_href="q6f" ></a>
+<!--插座-->
+        <div ng-show="pageServicePdata.q6f_tearDown">
+            <a class="iv105" title="1" wybredPosition="1" wybblackPosition="1" h_y="397" h_x="339" rqPosition="4063" h_href="q6f" ></a>
+            <a class="iv106" title="2" wybredPosition="1" wybblackPosition="1" h_y="397" h_x="361" rqPosition="4064" h_href="q6f" ></a>
+        </div>
+    </div>
+
+    <div ng-show="pageServicePint.In1Sen_Q6F_Conn_x_Install== '1'">
+<!--插头背部-->
+        <a class="iv103" title="1" wybredPosition="2" wybblackPosition="2" h_y="405" h_x="362" rqPosition="2106" h_href="q6f" ></a>
+        <a class="iv104" title="2" wybredPosition="2" wybblackPosition="2" h_y="399" h_x="378" rqPosition="2108" h_href="q6f" ></a>
+    </div>
+</div>

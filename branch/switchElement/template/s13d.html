@@ -1,0 +1,10 @@
+<div class="s13d" ng-controller="switchCtrl" ng-show="switchServiceOdata.s13dStatus">
+    <div class="s13d-body">
+        <div class="s13d-head1" ng-show="pageServicePint.In1Veh_S13D_SwitchOpen_x_x=='0'"></div>
+        <div class="s13d-head1-o" ng-show="pageServicePint.In1Veh_S13D_SwitchOpen_x_x=='1'"></div>
+        <div class="s13d-head2" ng-show="pageServicePint.In1Veh_S13D_SwitchClose_x_x=='0'"></div>
+        <div class="s13d-head2-o" ng-show="pageServicePint.In1Veh_S13D_SwitchClose_x_x=='1'"></div>
+    </div>
+    <div  class="coe13" ng-click="switchHide('s13d')"></div>
+    <!--<div class="pic" ng-show="!switchServiceOdata.s13d"></div>-->
+</div>

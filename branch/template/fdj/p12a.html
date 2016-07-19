@@ -1,0 +1,28 @@
+<div class="fd-bg fd-p12a" switches="s33">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="p12a-head-install" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install=='1'"></div>
+    <div class="thlb001" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install=='1'" ng-click="ctOpen('In1Veh_P12A_Conn_x_Install','2','p12a')"></div>
+    <div class="p12a-head-out" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install=='0'"></div>
+    <div class="thlb002" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install=='0'&&pageServicePdata.p12a_tearDown" ng-click="ctClose('In1Veh_P12A_Conn_x_Install','1','p12a')"></div>
+    <!--更换零件-->
+    <div class="p12a-light"status="bj-p12a" ng-show="!pageServicePdata.p12a_tearDown"></div>
+    <div id="msg-p12a" class="thlb000 bj-p12a" sata="hexagonal-10mm" ng-click="showMsg('msg-p12a','请选择六角10MM套筒')" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install== '0'&&pageServicePdata.p12a_tearDown"></div>
+    <div class="thlb000 p12a_install" ng-show="!pageServicePdata.p12a_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-p12a-line" class="p12a-line-hot line" ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install== '0'" ></div>
+    <div class="p12a-line" status="bj-p12a-line"></div>
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="thlb003" title="1" wybredPosition="1" wybblackPosition="1" h_y="653" h_x="290" rqPosition="3157" h_href="p12a" ></a>
+        <a class="thlb004" title="2" wybredPosition="1" wybblackPosition="1" h_y="664" h_x="259" rqPosition="3159" h_href="p12a" ></a>
+        <!--插座-->
+        <a class="thlb005" title="1" wybredPosition="1" wybblackPosition="1"  h_y="485" h_x="433" rqPosition="4216" h_href="p12a" ></a>
+        <a class="thlb006" title="2" wybredPosition="1" wybblackPosition="1" h_y="484" h_x="398" rqPosition="4217" h_href="p12a" ></a>
+    </div>
+    <div ng-show="pageServicePint.In1Veh_P12A_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="thlb007" title="1" wybredPosition="2" wybblackPosition="2" h_y="520" h_x="353" rqPosition="3158" h_href="p12a" ></a>
+        <a class="thlb008" title="2" wybredPosition="2" wybblackPosition="2" h_y="516" h_x="326" rqPosition="3160" h_href="p12a" ></a>
+    </div>
+    </div>

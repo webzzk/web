@@ -1,0 +1,31 @@
+<div class="oscilloscope-contain" ng-controller="oscilloscopeCtrl" ng-show="oscilloscopeServiceMdata.oscilloscopeStatus">
+    <div id="mask-oscilloscope" class="oscilloscope">
+        <div   class="oscilloscope-body">
+            <div class="coe" ng-click="oscilloscopeServiceMdata.oscilloscopeHide();"></div>
+        </div>
+        <div class="oscilloscopeData" ng-show="oscilloscopeServiceMdata.oscilloscope_test">
+            <div class="waveform">
+                <ul class="oUl">
+                    <li class="wave"><img ng-src="framework/oscilloscope/images/{{oscilloscopeServiceMout.Out1TestPS_x_Scope_x_x}}.png" alt=""/></li>
+                    <li class="wave"><img ng-src="framework/oscilloscope/images/{{oscilloscopeServiceMout.Out1TestPS_x_Scope_x_x}}.png" alt=""/></li>
+                </ul>
+            </div>
+
+            <p>Vmax=<span class="vman">{{oscilloscopeServiceMout.Out1TestPS_x_Max_x_x | number:2}}</span></p><p>Vmin=<span class="vmin">{{oscilloscopeServiceMout.Out1TestPS_x_Min_x_x | number:2}}</span></p>
+            <p>
+                CH1:<span class="chi">{{oscilloscopeServiceMout.Out1TestPS_x_YAxis_x_x | number:2}}V/div</span>
+            </p>
+            <p style="width:102px">
+                Time:<span class="time">{{oscilloscopeServiceMdata.Out1TestPS_x_XAxis_x_x | number:2}}</span><span ng-show="oscilloscopeServiceMdata.time=='1'">s</span><span ng-show="oscilloscopeServiceMdata.time=='0'">ms</span>/div
+            </p>
+
+        </div>
+        <!--<div id="oscilloscope-line" class="oscilloscope-pen"></div>-->
+    </div>
+    <div id="oscilloscope-left" class="oscilloscope-antenna-left" ng-click="oscilloscope_pen(oscilloscopeServiceMdata.oscilloscope_Html);"></div>
+    <div id="oscilloscope-right" class="oscilloscope-antenna-right"></div>
+    <div id="oscilloscope-pen" ng-show="oscilloscopeServiceMdata.oscilloscope_pen" class="oscilloscope-pen"></div>
+    <div id="oscilloscopeHot-pen" ng-show="oscilloscopeServiceMdata.oscilloscope_pen"></div>
+
+  <!--  <div id="oscilloscope_needle_hot" class="oscilloscope_needle_hot ui-draggable"  ></div>-->
+</div>

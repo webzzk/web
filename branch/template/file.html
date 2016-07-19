@@ -1,0 +1,847 @@
+<div style="width:1024px;height:900px;z-index: 999" id='file' class="file"  ng-show="isFile">
+    <div class="top-show">
+        <span ng-class="{'box-show':(dataBox),'box-hide':(!dataBox)}" ng-click="boxSowOrHide()"></span>
+        <div class="work-table">   故障诊断维修作业表</div>
+    </div>
+    <!--左侧导航-->
+    <div class="navi-box">
+        <div class="navi-list">
+            <div class="navi-list-title" ng-click="ztreeShowOrHide(1)">车身系统<span ng-class="{'under':(ztree1),'on':(!ztree1)}"></span></div>
+            <div class="navi-list-content" ng-show="ztree1">
+                <ul class="ztree" id="ztree1"></ul>
+            </div>
+        </div>
+        <div class="navi-list">
+            <div class="navi-list-title"  ng-click="ztreeShowOrHide(2)">制动器<span ng-class="{'under':(ztree1),'on':(!ztree1)}"></span></div>
+            <div class="navi-list-content" ng-show="ztree2" >
+                <ul class="ztree" id="ztree2"></ul>
+            </div>
+
+        </div>
+        <div class="navi-list">
+            <div class="navi-list-title"  ng-click="ztreeShowOrHide(3)">发动机/推进系统<span ng-class="{'under':(ztree1),'on':(!ztree1)}"></span></div>
+            <div class="navi-list-content"  ng-show="ztree3">
+                <ul class="ztree" id="ztree3"></ul>
+            </div>
+        </div>
+        <div class="navi-list">
+            <div class="navi-list-title"  ng-click="ztreeShowOrHide(4)">电源和信号分布<span ng-class="{'under':(ztree1),'on':(!ztree1)}"></span></div>
+            <div class="navi-list-content"  ng-show="ztree4">
+                <ul class="ztree" id="ztree4"></ul>
+            </div>
+        </div>
+    </div>
+    <!--右侧放大缩小-->
+    <div class="btn-box">
+        <span class="big"  onclick="Amplification(1)"></span>
+        <span class="small"  onclick="Amplification(2)"></span>
+        <span class="restore"  onclick="Amplification(3)"></span>
+    </div>
+    <!--内容-->
+    <div class="content-body">
+        <div class='file-body'>
+            <div ng-include="'template/file/data/4.1.1.1.html'"></div>
+        </div>
+        <!--<a href="" style="position: absolute;width: 1024px;height: 530px;border: 1px solid  red;"></a>-->
+
+        <!--<div ng-include="'template/flie/1/4.1.2.1.html'"></div>-->
+        <!--<div ng-include="'template/flie/1/4.1.2.2.html'"></div>-->
+        <!--<div class='file-body'>-->
+        <!--<div class="head">帮助文档</div>-->
+        <!--<div class="file-topic">1.维修工单</div>-->
+        <!--<div class="file-content">-->
+        <!--点击维修工单，主页面出现维修作业记录表。根据维修作业记录表的引导，需要您确认故障现象、故障代码检查、正确读取数据流和故障代码、确定故障范围、基本检查、部件测试、电路测量、故障部位确认和排除。每一项都是计分项，请根据实际操作认真填写。-->
+        <!--</div>-->
+
+        <!--<div class="file-topic"> 2.场景导航</div>-->
+        <!--<div class="file-content">-->
+        <!--点击场景导航图标，显示整车各个部位，通过点击部位图片，进入到不同场景，方便进行不同场景的切换和测量。-->
+        <!--</div>-->
+        <!--<div class="file-topic">3.零件车</div>-->
+        <!--<div class="file-content">-->
+        <!--点击零件车图标，主界面上方显示零件车，零件车内会显示零部件名称。拆下的零部件可拖入到零件车内，装回时将零件车内零件拖入到相应位置即可装上，如果拖入的位置不正确，零件将自动回到零件车内。需要确认零件位置后再次做上述动作-->
+        <!--</div>-->
+
+        <!--<div class="file-topic">4.备件库</div>-->
+        <!--<div class="file-content">-->
+        <!--点击备件库，可看到发动机备件、底盘备件、车身电气备件。选择相应备件目录后，找到相应备件，将备件拖入到相应需要更换的部件热区内，即可完成更换。如果拖入的位置不正确，备件将自动回到备件库内。需要确认零件位置后再次做上述动作.-->
+        <!--</div>-->
+
+        <!--<div class="file-topic">5.维修资料</div>-->
+        <!--<div class="file-content">-->
+        <!--点击维修资料按钮，在主界面上出现维修课件所需的维修手册，可通过选择目录快速查询维修手册，为您维修故障提供方便。-->
+        <!--</div>-->
+
+        <!--<div class="file-topic">6.维修工具</div>-->
+        <!--<div class="file-content">-->
+        <!--点击维修工具，界面上方弹出常用工具、常用仪器及专用工具选项，根据需要选择相应的工具对车辆部位进行检测、判断。-->
+        <!--选择相应工具或仪器后，主界面弹出该工具或仪器。将工具拖入到相应拆卸区域，如果选择正确，零部件即可拆下，如不正确，如果选择工具不正确，零件将不可被拆下。需要重新选择工具。-->
+        <!--</div>-->
+        <!--<div class="file-topic">7.帮助</div>-->
+        <!--<div class="file-content">-->
+        <!--点击帮助文档按钮，主界面显示操作说明。-->
+        <!--</div>-->
+        <!--<div class="file-topic">8.关闭</div>-->
+        <!--<div class="file-content">-->
+        <!--点击关闭按钮后，课程关闭。-->
+        <!--</div>-->
+        <!--</div>-->
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    /*Javascript代码片段*/
+    (function(){
+        var data1 = [
+            {"id":41,"name":"1 固定活动车窗","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":411,"name":"1.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4111,"name":"1.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":411,"click":"cha('4.1.1.1.html')"},
+            {"id":412,"name":"1.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4121,"name":"1.2.1 活动车窗示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":412,"click":"cha('4.1.2.1.html')"},
+            {"id":4122,"name":"1.2.2 除雾器示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":412,"click":"cha('4.1.2.2.html')"},
+            {"id":413,"name":"1.3 不见定位图","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4131,"name":"1.3.1 车窗系统部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":413,"click":"cha('4.1.3.1.html')"},
+            {"id":414,"name":"1.4 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4141,"name":"1.4.1 DTC B0283","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.1.html')"},
+            {"id":4142,"name":"1.4.2 DTC B316B、B317A、B318A或B319A（AXG, AED, AEQ）","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.2.html')"},
+            {"id":4143,"name":"1.4.3 DTC B316B、B317A、B318A或B319A（AXG, AEF, AER）","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.3.html')"},
+            {"id":4144,"name":"1.4.4 DTC B3205、B3210、B3215或B3220","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.4.html')"},
+            {"id":4145,"name":"1.4.5 症状 - 固定和活动车窗","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.5.html')"},
+            {"id":4146,"name":"1.4.6 后窗除雾器故障","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.6.html')"},
+            {"id":4147,"name":"1.4.7 电动车窗故障（AXG, AEF, AER）","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.7.html')"},
+            {"id":4148,"name":"1.4.8 电动车窗故障（AXG, AED, AEQ）","isParent":false,"checked":false,"chkDisabled":false,"pId":414,"click":"cha('4.1.4.8.html')"},
+            {"id":415,"name":"1.5 说明和操作","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4151,"name":"1.5.1 粘合剂维修组件的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":415,"click":"cha('4.1.6.1.html')"},
+            {"id":4152,"name":"1.5.2 电动车窗的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":415,"click":"cha('4.1.6.2.html')"},
+            {"id":4153,"name":"1.5.3 后窗除雾器的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":415,"click":"cha('4.1.6.3.html')"},
+            {"id":4154,"name":"1.5.4 固定式车窗的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":415,"click":"cha('4.1.6.4.html')"},
+            {"id":416,"name":"1.6 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":41},
+            {"id":4161,"name":"1.6.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":416,"click":"cha('4.1.7.1.htm')"},
+            {"id":42,"name":"2 喇叭","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":421,"name":"2.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":42},
+            {"id":4211,"name":"2.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":421,"click":"cha('4.2.1.1.html')"},
+            {"id":422,"name":"2.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":42},
+            {"id":4221,"name":"2.2.1 喇叭示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":422,"click":"cha('4.2.2.1.html')"},
+            {"id":423,"name":"2.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":42},
+            {"id":4231,"name":"2.3.1 DTC B2750","isParent":false,"checked":false,"chkDisabled":false,"pId":423,"click":"cha('4.2.3.1.html')"},
+            {"id":4232,"name":"2.3.2 症状 - 喇叭","isParent":false,"checked":false,"chkDisabled":false,"pId":423,"click":"cha('4.2.3.2.html')"},
+            {"id":4233,"name":"2.3.3 喇叭故障","isParent":false,"checked":false,"chkDisabled":false,"pId":423,"click":"cha('4.2.3.3.html')"},
+            {"id":424,"name":"2.4 说明和操作","isParent":true,"checked":false,"chkDisabled":false,"pId":42},
+            {"id":4241,"name":"2.4.1 喇叭系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":424,"click":"cha('4.2.5.1.html')"},
+            {"id":43,"name":"3 照明","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":431,"name":"3.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":43},
+            {"id":4311,"name":"3.1.1 灯泡使用图","isParent":false,"checked":false,"chkDisabled":false,"pId":431,"click":"cha('4.3.1.1.html')"},
+            {"id":4312,"name":"3.1.2 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":431,"click":"cha('4.3.2.1.html')"},
+            {"id":432,"name":"3.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":43},
+            {"id":4321,"name":"3.2.1 前大灯/日间行车灯（DRL）示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":432,"click":"cha('4_3_2_1.html')"},
+            {"id":4322,"name":"3.2.2 雾灯示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":432,"click":"cha('4_3_2_2.html')"},
+            {"id":4323,"name":"3.2.3 车外灯示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":432,"click":"cha('4_3_2_3.html')"},
+            {"id":4324,"name":"3.2.4 车内灯示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":432,"click":"cha('4_3_2_4.html')"},
+            {"id":4325,"name":"3.2.5 车内灯变光示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":432,"click":"cha('4_3_2_5.html')"},
+
+            {"id":433,"name":"3.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":43},
+            {"id":4331,"name":"3.3.1 DTC B1480","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.1.html')"},
+            {"id":4332,"name":"3.3.2 DTC B2540","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.2.html')"},
+            {"id":4333,"name":"3.3.3 DTC B2545","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.3.html')"},
+            {"id":4334,"name":"3.3.4 DTC B255F","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.4.html')"},
+            {"id":4335,"name":"3.3.5 DTC B2570","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.5.html')"},
+            {"id":4336,"name":"3.3.6 DTC B2575或B2699","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.6.html')"},
+            {"id":4337,"name":"3.3.7 DTC B257A","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.7.html')"},
+            {"id":4338,"name":"3.3.8 DTC B257B","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.8.html')"},
+            {"id":4339,"name":"3.3.9 DTC B2580","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.9.html')"},
+            {"id":43310,"name":"3.3.10 DTC B2585或B3867","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.10.html')"},
+            {"id":43311,"name":"3.3.11 DTC B258A","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.11.html')"},
+            {"id":43312,"name":"3.3.12 DTC B259A或B259B","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.12.html')"},
+            {"id":43313,"name":"3.3.13 DTC B260B或B260C","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.13.html')"},
+            {"id":43314,"name":"3.3.14 DTC B2610","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.14.html')"},
+            {"id":43315,"name":"3.3.15 DTC B2615","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.15.html')"},
+            {"id":43316,"name":"3.3.16 DTC B2625","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.16.html')"},
+            {"id":43317,"name":"3.3.17 DTC B2645","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.17.html')"},
+            {"id":43318,"name":"3.3.18 DTC B3410或B3420","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.18.html')"},
+            {"id":43319,"name":"3.3.19 DTC B3415","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.19.html')"},
+            {"id":43320,"name":"3.3.20 DTC B3435或B3440","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.20.html')"},
+            {"id":43321,"name":"3.3.21 DTC B3596","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.21.html')"},
+            {"id":43322,"name":"3.3.22 DTC B3600","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.22.html')"},
+            {"id":43323,"name":"3.3.23 DTC B3650","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.23.html')"},
+            {"id":43324,"name":"3.3.24 DTC B3806","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.24.html')"},
+            {"id":43325,"name":"3.3.25 DTC B3881或B3882","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.25.html')"},
+            {"id":43326,"name":"3.3.26 DTC B3883","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.26.html')"},
+            {"id":43327,"name":"3.3.27 DTC B3884","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.27.html')"},
+            {"id":43328,"name":"3.3.28 DTC B3948或B3949","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.28.html')"},
+            {"id":43329,"name":"3.3.29 DTC B3950或B3951","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4.3.3.29.html')"},
+            {"id":43330,"name":"3.3.30 DTC C0277或C0890","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_30.html')"},
+            {"id":43331,"name":"3.3.31 DTC C0297","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_31.html')"},
+            {"id":43332,"name":"3.3.32 症状 - 照明","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_32.html')"},
+            {"id":43333,"name":"3.3.33 自适应式前照灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_33.html')"},
+            {"id":43334,"name":"3.3.34 倒车灯故障（自动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_34.html')"},
+            {"id":43335,"name":"3.3.35 倒车灯故障（手动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_35.html')"},
+            {"id":43336,"name":"3.3.36 门控灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_36.html')"},
+            {"id":43337,"name":"3.3.37 日间行车灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_37.html')"},
+            {"id":43338,"name":"3.3.38 顶灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_38.html')"},
+            {"id":43339,"name":"3.3.39 后雾灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_39.html')"},
+            {"id":43340,"name":"3.3.40 危险警告灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_40.html')"},
+            {"id":43341,"name":"3.3.41 前大灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_41.html')"},
+            {"id":43342,"name":"3.3.42 前大灯高度调节故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_42.html')"},
+            {"id":43343,"name":"3.3.43 车内强光照明系统故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_43.html')"},
+            {"id":43344,"name":"3.3.44 车内背景灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_44.html')"},
+            {"id":43345,"name":"3.3.45 驻车灯、牌照灯和/或尾灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_45.html')"},
+            {"id":43346,"name":"3.3.46 行李厢灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_46.html')"},
+            {"id":43347,"name":"3.3.47 制动灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_47.html')"},
+            {"id":43348,"name":"3.3.48 转向信号灯和/或指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":433,"click":"cha('4_3_3_48.html')"},
+
+            {"id":434,"name":"3.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":43},
+            {"id":4341,"name":"3.4.1 车外照明系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":434},/*TODO:*/
+            {"id":4342,"name":"3.4.2 车内照明系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":434},/*TODO:*/
+
+            {"id":44,"name":"4 车辆进入系统","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":441,"name":"4.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":44},
+            {"id":4411,"name":"4.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":441,"click":"cha('4_5_1_1.html')"},
+
+            {"id":442,"name":"4.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":44},
+            {"id":4421,"name":"4.2.1 门锁/指示灯示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":442,"click":"cha('4_5_2_1.html')"},
+            {"id":4422,"name":"4.2.2 释放系统示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":442,"click":"cha('4_5_2_2.html')"},
+
+            {"id":443,"name":"4.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":44},
+            {"id":4431,"name":"4.3.1 DTC B1474或B3849","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_1.html')"},
+            {"id":4432,"name":"4.3.2 DTC B1534或B1535","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_2.html')"},
+            {"id":4433,"name":"4.3.3 DTC B2730","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_3.html')"},
+            {"id":4434,"name":"4.3.4 DTC B297B或B297C","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_4.html')"},
+            {"id":4435,"name":"4.3.5 DTC B3125、B3130或B3135","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_5.html')"},
+            {"id":4436,"name":"4.3.6 DTC B3140、B3145、B3150或B3155","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_6.html')"},
+            {"id":4437,"name":"4.3.7 DTC B3265","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_7.html')"},
+            {"id":4438,"name":"4.3.8 DTC B3618","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_8.html')"},
+            {"id":4439,"name":"4.3.9 症状 - 车辆进入系统","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_9.html')"},
+            {"id":44310,"name":"4.3.10 车门外把手开关故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_10.html')"},
+            {"id":44311,"name":"4.3.11 燃油加注口门释放故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_11.html')"},
+            {"id":44312,"name":"4.3.12 车门微开指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_12.html')"},
+            {"id":44313,"name":"4.3.13 电动门锁锁芯开关故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_13.html')"},
+            {"id":44314,"name":"4.3.14 电动门锁故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_14.html')"},
+            {"id":44315,"name":"4.3.15 行李厢释放故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_15.html')"},
+            {"id":44316,"name":"4.3.16 行李厢微开指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":443,"click":"cha('4_5_3_16.html')"},
+
+
+            {"id":444,"name":"4.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":44},
+            {"id":4441,"name":"4.4.1 车门微开指示灯的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":444,"click":"cha('4_5_5_1.html')"},
+            {"id":4442,"name":"4.4.2 燃油加注口门的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":444,"click":"cha('4_5_5_2.html')"},
+            {"id":4443,"name":"4.4.3 行李厢的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":444,"click":"cha('4_5_5_3.html')"},
+            {"id":4444,"name":"4.4.4 电动门锁的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":444,"click":"cha('4_5_5_4.html')"},
+
+            {"id":45,"name":"5 刮水器和洗涤器","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":451,"name":"5.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":45},
+            {"id":4511,"name":"5.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":451,"click":"cha('4_6_1_1.html')"},
+            {"id":4512,"name":"5.1.2 近似油液容量","isParent":false,"checked":false,"chkDisabled":false,"pId":451,"click":"cha('4_6_1_2.html')"},
+
+            {"id":452,"name":"5.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":45},
+            {"id":4521,"name":"5.2.1 刮水器/洗涤器示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":452,"click":"cha('4.6.2.1.html')"},
+
+
+            {"id":453,"name":"5.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":45},
+            {"id":4531,"name":"5.3.1 DTC B370A","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4_6_3_1.html')"},
+            {"id":4532,"name":"5.3.2 DTC B371C","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4_6_3_2.html')"},
+            {"id":4533,"name":"5.3.3 DTC B3810","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4_6_3_3.html')"},
+            {"id":4534,"name":"5.3.4 DTC B3873","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4_6_3_4.html')"},
+            {"id":4535,"name":"5.3.5 症状 - 刮水器/洗涤器系统","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.5.html')"},
+            {"id":4536,"name":"5.3.6 挡风玻璃刮水器系统故障","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.6.html')"},
+            {"id":4537,"name":"5.3.7 洗涤器液位过低指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.7.html')"},
+            {"id":4538,"name":"5.3.8 洗涤器故障","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.8.html')"},
+            {"id":4539,"name":"5.3.9 雨量传感器故障","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.9.html')"},
+            {"id":45310,"name":"5.3.10 前大灯洗涤器故障","isParent":false,"checked":false,"chkDisabled":false,"pId":453,"click":"cha('4.6.3.10.html')"},
+
+            {"id":454,"name":"5.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":45},
+            {"id":4541,"name":"5.4.1 刮水器/洗涤器系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":454,"click":"cha('4.6.5.1.html')"},
+
+            {"id":455,"name":"5.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":45},
+            {"id":4551,"name":"5.5.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":455,"click":"cha('4.6.6.1.html')"}
+
+
+
+
+
+
+
+
+
+        ];
+        var data2 = [
+            {"id":51,"name":"1 防抱死制动系统","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":511,"name":"1.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":51},
+            {"id":5111,"name":"1.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":511,"click":"cha('5.1.1.1.html')"},
+            {"id":512,"name":"1.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":51},
+            {"id":5121,"name":"1.2.1 防抱死制动系统示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":512},
+
+            {"id":513,"name":"1.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":51},
+            {"id":5131,"name":"1.3.1 DTC B2745","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.1.html')"},
+            {"id":5132,"name":"1.3.2 DTC C0035-C0051","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.2.html')"},
+            {"id":5133,"name":"1.3.3 DTC C0055","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.3.html')"},
+            {"id":5134,"name":"1.3.4 DTC C005A","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.4.html')"},
+            {"id":5135,"name":"1.3.5 DTC C0110","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.5.html')"},
+            {"id":5136,"name":"1.3.6 DTC C0115","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.6.html')"},
+            {"id":5137,"name":"1.3.7 DTC C0116","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.7.html')"},
+            {"id":5138,"name":"1.3.8 DTC C0121","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.8.html')"},
+            {"id":5139,"name":"1.3.9 DTC C012A","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.9.html')"},
+            {"id":51310,"name":"1.3.10 DTC C0131","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.10.html')"},
+            {"id":51311,"name":"1.3.11 DTC C0161","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.11.html')"},
+            {"id":51312,"name":"1.3.12 DTC C0179","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.12.html')"},
+            {"id":51313,"name":"1.3.13 DTC C0186、C0196或C0287","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.13.html')"},
+            {"id":51314,"name":"1.3.14 DTC C0245","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.14.html')"},
+            {"id":51315,"name":"1.3.15 DTC C0274","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.15.html')"},
+            {"id":51316,"name":"1.3.16 DTC C0280","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.16.html')"},
+            {"id":51317,"name":"1.3.17 DTC C0561","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.17.html')"},
+            {"id":51318,"name":"1.3.18 DTC C0569","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.18.html')"},
+            {"id":51319,"name":"1.3.19 DTC C0710","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.19.html')"},
+            {"id":51320,"name":"1.3.20 DTC C1207、C1208、C1221、C1222、C1225、C1226、C1232或C1233","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.20.html')"},
+            {"id":51321,"name":"1.3.21 DTC C1252-C1254","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.21.html')"},
+            {"id":51322,"name":"1.3.22 DTC P0856","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.22.html')"},
+            {"id":51323,"name":"1.3.23 症状 - 防抱死制动系统","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.23.html')"},
+            {"id":51324,"name":"1.3.24 防抱死制动系统指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.24.html')"},
+            {"id":51325,"name":"1.3.25 牵引力控制/稳定性控制指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":513,"click":"cha('5.1.3.25.html')"},
+
+            {"id":514,"name":"1.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":51},
+            {"id":5141,"name":"1.4.1 防抱死制动系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":514,"click":"cha('5.1.5.1.html')"},
+
+            {"id":52,"name":"2 液压制动器","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":521,"name":"2.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":52},
+            {"id":5211,"name":"2.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":521},/*TODO:*/
+            {"id":5212,"name":"2.1.2 粘合剂、油液、润滑剂和密封胶","isParent":false,"checked":false,"chkDisabled":false,"pId":521},/*TODO:*/
+            {"id":522,"name":"2.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":52},
+            {"id":5221,"name":"2.2.1 液压制动器示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":522},/*TODO:*/
+            {"id":523,"name":"2.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":52},
+            {"id":5231,"name":"2.3.1 DTC C0126","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.1.html')"},
+            {"id":5232,"name":"2.3.2 DTC C0267","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.2.html')"},
+            {"id":5233,"name":"2.3.3 DTC C0299","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.3.html')"},
+            {"id":5234,"name":"2.3.4 DTC C025E","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.4.html')"},
+            {"id":5235,"name":"2.3.5 DTC P050F","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.5.html')"},
+            {"id":5236,"name":"2.3.6 DTC P0556、P0557或P0558","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.6.html')"},
+            {"id":5237,"name":"2.3.7 症状 - 液压制动器","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.7.html')"},
+            {"id":5238,"name":"2.3.8 制动警告指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.8.html')"},
+            {"id":5239,"name":"2.3.9 制动器脉动","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.9.html')"},
+            {"id":52310,"name":"2.3.10 制动系统噪声","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.10.html')"},
+            {"id":52311,"name":"2.3.11 制动不均匀 - 跑偏","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.11.html')"},
+            {"id":52312,"name":"2.3.12 制动不均匀 - 前后","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.12.html')"},
+            {"id":52313,"name":"2.3.13 制动踏板行程过大","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.13.html')"},
+            {"id":52314,"name":"2.3.14 制动踏板过硬","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.14.html')"},
+            {"id":52315,"name":"2.3.15 制动器卡滞","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.15.html')"},
+            {"id":52316,"name":"2.3.16 制动系统释放缓慢","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.16.html')"},
+            {"id":52317,"name":"2.3.17 制动液流失","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.17.html')"},
+            {"id":52318,"name":"2.3.18 盘式制动系统的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.18.html')"},
+            {"id":52319,"name":"2.3.19 液压制动系统的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.19.html')"},
+            {"id":52320,"name":"2.3.20 制动辅助系统的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.20.html')"},
+            {"id":52321,"name":"2.3.21 制动系统车辆路试","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.21.html')"},
+            {"id":52322,"name":"2.3.22 制动踏板行程的测量和检查","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.22.html')"},
+            {"id":52323,"name":"2.3.23 制动系统真空源测试","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.23.html')"},
+            {"id":52324,"name":"2.3.24 制动系统外部泄漏的检查","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.24.html')"},
+            {"id":52325,"name":"2.3.25 制动系统内部泄漏测试","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.25.html')"},
+            {"id":52326,"name":"2.3.26 液压制动器部件操作的目视检查","isParent":false,"checked":false,"chkDisabled":false,"pId":523,"click":"cha('5.3.3.26.html')"},
+            {"id":524,"name":"2.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":52},
+            {"id":5241,"name":"2.4.1 制动辅助系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":524,"click":"cha('5.3.5.1.html')"},
+            {"id":5242,"name":"2.4.2 制动助力器真空辅助的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":524,"click":"cha('5.3.5.2.html')"},
+            {"id":5243,"name":"2.4.3 制动液和制动液的处理","isParent":false,"checked":false,"chkDisabled":false,"pId":524,"click":"cha('5.3.5.3.html')"},
+            {"id":5244,"name":"2.4.4 制动警告系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":524},/*TODO:木有*/
+            {"id":5245,"name":"2.4.5 液压制动系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":524,"click":"cha('5.3.5.5.html')"},
+            {"id":525,"name":"2.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":52},
+            {"id":5251,"name":"2.5.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":525,"click":"cha('5.3.6.1.html')"},
+            {"id":53,"name":"3 驻车制动器","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":531,"name":"3.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":53},
+            {"id":5311,"name":"3.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":531,"click":"cha('5.4.1.1.html')"},
+            {"id":532,"name":"3.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":53},
+            {"id":5321,"name":"3.2.1 驻车制动系统示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":532},/*TODO:*/
+            {"id":533,"name":"3.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":53},
+            {"id":5331,"name":"3.3.1 DTC C028B","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.1.html')"},
+            {"id":5332,"name":"3.3.2 DTC C028F","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.2.html')"},
+            {"id":5333,"name":"3.3.3 DTC C0293","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.3.html')"},
+            {"id":5334,"name":"3.3.4 DTC C1586","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.4.html')"},
+            {"id":5335,"name":"3.3.5 DTC C1587","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.5.html')"},
+            {"id":5336,"name":"3.3.6 DTC C1588","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.6.html')"},
+            {"id":5337,"name":"3.3.7 症状 - 驻车制动器","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.7.html')"},
+            {"id":5338,"name":"3.3.8 驻车制动系统的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":533,"click":"cha('5.4.3.8.html')"},
+            {"id":534,"name":"3.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":53},
+            {"id":5341,"name":"3.4.1 驻车制动系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":534,"click":"cha('5.4.5.1.html')"}
+
+        ];
+        var data3 = [
+            {"id":91,"name":"1 12伏启动和充电","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":911,"name":"1.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":91},
+            {"id":9111,"name":"1.1.1 紧固件紧固规格（1.5升L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":911,"click":"cha('9.1.1.1.html')"},
+            {"id":9112,"name":"1.1.2 紧固件紧固规格（1.5升LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":911,"click":"cha('9.1.1.2.html')"},
+
+            {"id":912,"name":"1.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":91},
+            {"id":9121,"name":"1.2.1 起动和充电示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":912,"click":"cha('9.1.2.1.html')"},
+
+            {"id":913,"name":"1.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":91},
+            {"id":9131,"name":"1.3.1 DTC B1325、B1327-B1330、B1395、B1415、B1424、B1425、B1439、B1517、C0800、C0805、C0870、C0880、C0895、C0899、C0900、P0560、P0562、P0563、P0611、P129B、P129C、P15AE或P15AF","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.1.html')"},
+            {"id":9132,"name":"1.3.2 DTC B1516","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.2.html')"},
+            {"id":9133,"name":"1.3.3 DTC B151A","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.3.html')"},
+            {"id":9134,"name":"1.3.4 DTC B151C","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.4.html')"},
+            {"id":9135,"name":"1.3.5 DTC B1527","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.5.html')"},
+            {"id":9136,"name":"1.3.6 DTC P0561","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.6.html')"},
+            {"id":9137,"name":"1.3.7 DTCP0615、P0616或P0617（自动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.7.html')"},
+            {"id":9138,"name":"1.3.8 DTCP0615、P0616或P0617（手动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.8.html')"},
+            {"id":9139,"name":"1.3.9 DTC P0621","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.9.html')"},
+            {"id":91310,"name":"1.3.10 DTC P0622","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.10.html')"},
+            {"id":91311,"name":"1.3.11 DTC P15A3","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.11.html')"},
+            {"id":91312,"name":"1.3.12 DTC P058D、P16D4-P16D6或P16DD","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.12.html')"},
+            {"id":91313,"name":"1.3.13 DTC P058A-P058C、P058E、P058F、P16DC、P16DE、P16DF或P16E1-P16E3","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.13.html')"},
+            {"id":91314,"name":"1.3.14 DTC P26E4-P26E6","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.14.html')"},
+            {"id":91315,"name":"1.3.15 症状 - 发动机电气系统","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.15.html')"},
+            {"id":91316,"name":"1.3.16 症状 - 停车/起步系统","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.16.html')"},
+            {"id":91317,"name":"1.3.17 蓄电池检查/测试","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.17.html')"},
+            {"id":91318,"name":"1.3.18 蓄电池充电","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.18.html')"},
+            {"id":91319,"name":"1.3.19 蓄电池放电/寄生负载测试","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.19.html')"},
+            {"id":91320,"name":"1.3.20 充电系统测试","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.20.html')"},
+            {"id":91321,"name":"1.3.21 发电机噪声的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.21.html')"},
+            {"id":91322,"name":"1.3.22 停车/起步系统故障","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.22.html')"},
+            {"id":91323,"name":"1.3.23 起动机电磁线圈未发出咔嗒声（自动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.23.html')"},
+            {"id":91324,"name":"1.3.24 起动机电磁线圈未发出咔嗒声（手动变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.24.html')"},
+            {"id":91325,"name":"1.3.25 起动机电磁线圈发出咔嗒声，但发动机不起动","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.25.html')"},
+            {"id":91326,"name":"1.3.26 发动机起动缓慢","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.26.html')"},
+            {"id":91327,"name":"1.3.27 起动机噪声的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":913,"click":"cha('9.1.3.27.html')"},
+
+            {"id":914,"name":"1.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":91},
+            {"id":9141,"name":"1.4.1 蓄电池的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.1.html')"},
+            {"id":9142,"name":"1.4.2 充电系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.2.html')"},
+            {"id":9143,"name":"1.4.3 电源管理的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.3.html')"},
+            {"id":9144,"name":"1.4.4 减负荷系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.4.html')"},
+            {"id":9145,"name":"1.4.5 起动系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.5.html')"},
+            {"id":9146,"name":"1.4.6 停车/起步系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":914,"click":"cha('9.1.5.6.html')"},
+
+            {"id":915,"name":"1.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":91},
+            {"id":9151,"name":"1.5.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":915,"click":"cha('9.1.6.1.html')"},
+
+            {"id":92,"name":"2 发动机控制系统和燃油系统 - 1.5升（L3G、LFV）","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":921,"name":"2.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":92},
+            {"id":9211,"name":"2.1.1 温度与电阻对照表（发动机冷却液温度传感器）","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.1.html')"},
+            {"id":9212,"name":"2.1.2 温度与电阻对照表 - 进气温度传感器（博世传感器）","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.2.html')"},
+            {"id":9213,"name":"2.1.3 温度与电阻对照表 - 进气温度传感器（德科传感器）","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.3.html')"},
+            {"id":9214,"name":"2.1.4 海拔与大气压力","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.4.html')"},
+            {"id":9215,"name":"2.1.5 点火系统规格","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.5.html')"},
+            {"id":9216,"name":"2.1.6 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.6.html')"},
+            {"id":9217,"name":"2.1.7 近似油液容量","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.7.html')"},
+            {"id":9218,"name":"2.1.8 粘合剂、油液、润滑剂和密封胶","isParent":false,"checked":false,"chkDisabled":false,"pId":921,"click":"cha('9.3.1.8.html')"},
+
+            {"id":922,"name":"2.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":92},
+            {"id":9221,"name":"2.2.1 发动机控制示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":922,"click":"cha('9.3.2.1.htm')"},
+
+            {"id":923,"name":"2.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":92},
+            {"id":9231,"name":"2.3.1 DTC P0010、P0013或P2088-P2091","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.1.html')"},
+            {"id":9232,"name":"2.3.2 DTC P0011或P0014","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.2.html')"},
+            {"id":9233,"name":"2.3.3 DTC P0016或P0017","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.3.html')"},
+            {"id":9234,"name":"2.3.4 DTC P0030-P0032、P0036-P0038、P0053、P0054、P0135或P0141","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.4.html')"},
+            {"id":9235,"name":"2.3.5 DTC P0033-P0035","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.5.html')"},
+            {"id":9236,"name":"2.3.6 DTC P0068或P1101","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.6.html')"},
+            {"id":9237,"name":"2.3.7 DTC P0089、P00C6、P228C或P228D","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.7.html')"},
+            {"id":9238,"name":"2.3.8 DTC P0090-P0092、P00C8、P00C9或P00CA","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9.3.3.8.html')"},
+            {"id":9239,"name":"2.3.9 DTC P0096或P0111","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_9.html')"},
+            {"id":92310,"name":"2.3.10 DTC P0097、P0098或P0099","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_10.html')"},
+            {"id":92311,"name":"2.3.11 DTC P00C7（LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_11.html')"},
+            {"id":92312,"name":"2.3.12 DTC P00C7（L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_12.html')"},
+            {"id":92313,"name":"2.3.13 DTC P00E9","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_13.html')"},
+            {"id":92314,"name":"2.3.14 DTC P00EA-P00EC","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_14.html')"},
+            {"id":92315,"name":"2.3.15 DTC P00F4-P00F6","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_15.html')"},
+            {"id":92316,"name":"2.3.16 DTC P0101","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_16.html')"},
+            {"id":92317,"name":"2.3.17 DTC P0102或P0103","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_17.html')"},
+            {"id":92318,"name":"2.3.18 DTC P0106","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_18.html')"},
+            {"id":92319,"name":"2.3.19 DTC P0107或P0108","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_19.html')"},
+            {"id":92320,"name":"2.3.20 DTC P0112、P0113或P0114","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_20.html')"},
+            {"id":92321,"name":"2.3.21 DTC P0117、P0118或P0119","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_21.html')"},
+            {"id":92322,"name":"2.3.22 DTC P0121-P0123、P0222、P0223、P16A0-P16A2或P2135（LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_22.html')"},
+            {"id":92323,"name":"2.3.23 DTC P0121-P0123、P0222、P0223、P16A0-P16A2或P2135（L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_23.html')"},
+            {"id":92324,"name":"2.3.24 DTC P0128","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_24html')"},
+            {"id":92325,"name":"2.3.25 DTC P0131、P0132、P0137或P0138","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_25.html')"},
+            {"id":92326,"name":"2.3.26 DTC P0133、P1133、P2270或P2271","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_26.html')"},
+            {"id":92327,"name":"2.3.27 DTC P0171或P0172","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_27.html')"},
+            {"id":92328,"name":"2.3.28 DTC P0191（LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_28.html')"},
+            {"id":92329,"name":"2.3.29 DTC P0192或P0193","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_29.html')"},
+            {"id":92330,"name":"2.3.30 DTC P0182、P0183、P0187、P0188、P111F、P126E或P126F（LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_30.html')"},
+            {"id":92331,"name":"2.3.31 DTC P018B-P018D","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_31.html')"},
+            {"id":92332,"name":"2.3.32 DTC P0201-P0204、P0261、P0262、P0264、P0265、P0267、P0268、P0270、P0271、P1248、P1249、P124A、P124B、P2147、P2148、P2150、P2151、P2153、P2154、P2156或P2157","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_31.html')"},
+            {"id":92333,"name":"2.3.33 DTC P0234或P0299","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_33.html')"},
+            {"id":92334,"name":"2.3.34 DTC P0236","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_34.html')"},
+            {"id":92335,"name":"2.3.35 DTC P0237或P0238","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_35.html')"},
+            {"id":92336,"name":"2.3.36 DTC P0243、P0245或P0246","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_36.html')"},
+            {"id":92337,"name":"2.3.37 DTC P0231、P0232或P023F","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_37.html')"},
+            {"id":92338,"name":"2.3.38 DTC P0300-P0304","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_38.html')"},
+            {"id":92339,"name":"2.3.39 DTC P0315","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_39.html')"},
+            {"id":92340,"name":"2.3.40 DTC P0324、P0326或P06B6","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_40.html')"},
+            {"id":92341,"name":"2.3.41 DTC P0325、P0327或P0328","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_41.html')"},
+            {"id":92342,"name":"2.3.42 DTC P0335或P0336","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_42.html')"},
+            {"id":92343,"name":"2.3.43 DTC P0340、P0341、P0365或P0366","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_43.html')"},
+            {"id":92344,"name":"2.3.44 DTC P034A或P034B","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_44.html')"},
+            {"id":92345,"name":"2.3.45 DTC P0351-P0354、P2300、P2301、P2303、P2304、P2306、P2307、P2309或P2310","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_45.html')"},
+            {"id":92346,"name":"2.3.46 DTC P0420","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_46.html')"},
+            {"id":92347,"name":"2.3.47 DTC P0443、P0458或P0459","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_47.html')"},
+            {"id":92348,"name":"2.3.48 DTC P0660、P0661或P0662","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_48.html')"},
+            {"id":92349,"name":"2.3.49 DTC P057B-P057E","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_49.html')"},
+            {"id":92350,"name":"2.3.50 DTC P0601-P0604、P0606、P062B、P062F、P0630、P16F3或P262B","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_50.html')"},
+            {"id":92351,"name":"2.3.51 DTC P0627-P0629","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_51.html')"},
+            {"id":92352,"name":"2.3.52 DTC P0641、P0651、P0697、P06A3或P06D2（发动机控制模块，LE2）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_52.html')"},
+            {"id":92353,"name":"2.3.53 DTC P0641、P0651、P0697、P06A3或P06D2（发动机控制模块，L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_53.html')"},
+            {"id":92354,"name":"2.3.54 DTC P0685-P0687、P0689、P0690或P1682","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_54.html')"},
+            {"id":92355,"name":"2.3.55 DTC P0700","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_55.html')"},
+            {"id":92356,"name":"2.3.56 DTC P121A","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_56.html')"},
+            {"id":92357,"name":"2.3.57 DTC P121B或P121C","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_57.html')"},
+            {"id":92358,"name":"2.3.58 DTC P128A-P128D、P128F、P16E4或P16E5（LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_58.html')"},
+            {"id":92359,"name":"2.3.59 DTC P129E或P12A8","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_59.html')"},
+            {"id":92360,"name":"2.3.60 DTC P1255","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_60.html')"},
+            {"id":92361,"name":"2.3.61 DTC P129B或P129C","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_61.html')"},
+            {"id":92362,"name":"2.3.62 DTC P129D","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_62.html')"},
+            {"id":92363,"name":"2.3.63 DTC P12A6","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_63.html')"},
+            {"id":92364,"name":"2.3.64 DTC P135A","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_64.html')"},
+            {"id":92365,"name":"2.3.65 DTC P1380或P1381","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_65.html')"},
+            {"id":92366,"name":"2.3.66 DTC P150C","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_66.html')"},
+            {"id":92367,"name":"2.3.67 DTC P1516、P2101、P2119或P2176","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_67.html')"},
+            {"id":92368,"name":"2.3.68 DTC P163A","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_68.html')"},
+            {"id":92369,"name":"2.3.69 DTC P16A7、P16AF或P16B3","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_69.html')"},
+            {"id":92370,"name":"2.3.70 DTC P2122、P2123、P2127、P2128或P2138","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_70.html')"},
+            {"id":92371,"name":"2.3.71 DTC P2227-P2230","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_71.html')"},
+            {"id":92372,"name":"2.3.72 DTC P2261","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_72.html')"},
+            {"id":92373,"name":"2.3.73 DTC P2544","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_73.html')"},
+            {"id":92374,"name":"2.3.74 DTC P2618","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_74.html')"},
+            {"id":92375,"name":"2.3.75 DTC P2635","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_75.html')"},
+            {"id":92376,"name":"2.3.76 症状 - 发动机控制装置","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_76.html')"},
+            {"id":92377,"name":"2.3.77 发动机起动但不运行","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_77.html')"},
+            {"id":92378,"name":"2.3.78 故障指示灯（MIL）诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_78.html')"},
+            {"id":92379,"name":"2.3.79 燃油系统诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_79.html')"},
+            {"id":92380,"name":"2.3.80 燃油喷射器的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_80.html')"},
+            {"id":92381,"name":"2.3.81 燃油喷射器电路的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_81.html')"},
+            {"id":92382,"name":"2.3.82 酒精/污染物进入燃油的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_82.html')"},
+            {"id":92383,"name":"2.3.83 电子点火系统诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":923,"click":"cha('9_3_3_83.html')"},
+
+
+
+            {"id":924,"name":"2.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":92},
+            {"id":9241,"name":"2.4.1 发动机控制模块的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_1.html')"},
+            {"id":9242,"name":"2.4.2 燃油系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_2.html')"},
+            {"id":9243,"name":"2.4.3 凸轮轴执行器系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_3.html')"},
+            {"id":9244,"name":"2.4.4 蒸发排放控制系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_4.html')"},
+            {"id":9245,"name":"2.4.5 电子点火系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_5.html')"},
+            {"id":9246,"name":"2.4.6 节气门执行器控制（TAC）系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_6.html')"},
+            {"id":9247,"name":"2.4.7 涡轮增压器系统的说明","isParent":false,"checked":false,"chkDisabled":false,"pId":924,"click":"cha('9_3_5_7.html')"},
+
+            {"id":925,"name":"2.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":92},
+            {"id":9251,"name":"2.5.1 专用工具（拆卸和安装工具）","isParent":false,"checked":false,"chkDisabled":false,"pId":925,"click":"cha('9_3_6_1.html')"},
+            {"id":9252,"name":"2.5.2 专用工具（诊断工具）","isParent":false,"checked":false,"chkDisabled":false,"pId":925,"click":"cha('9_3_6_2.html')"},
+
+            {"id":93,"name":"3 发动机的加热和冷却","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":931,"name":"3.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":93},
+            {"id":9311,"name":"3.1.1 温度与电阻对照表","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_1.html')"},
+            {"id":9312,"name":"3.1.2 紧固件紧固规格（1.5升LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_2.html')"},
+            {"id":9313,"name":"3.1.3 紧固件紧固规格（1.5升L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_3.html')"},
+            {"id":9314,"name":"3.1.4 近似油液容量","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_4.html')"},
+            {"id":9315,"name":"3.1.5 发动机冷却系统规格","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_5.html')"},
+            {"id":9316,"name":"3.1.6 粘合剂、油液、润滑剂和密封胶","isParent":false,"checked":false,"chkDisabled":false,"pId":931,"click":"cha('9_4_1_6.html')"},
+
+            {"id":932,"name":"3.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":93},
+            {"id":9321,"name":"3.2.1 发动机加热/冷却系统示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":932,"click":"cha('9_4_2_1.html')"},
+
+            {"id":933,"name":"3.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":93},
+            {"id":9331,"name":"3.3.1 DTC P00B3或P00B4","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_1.html')"},
+            {"id":9332,"name":"3.3.2 DTC P00B7","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_2.html')"},
+            {"id":9333,"name":"3.3.3 DTC P0480、P0691或P0692","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_3.html')"},
+            {"id":9334,"name":"3.3.4 DTC P0597-P0599（LE2, L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_4.html')"},
+            {"id":9335,"name":"3.3.5 症状 - 发动机冷却系统","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_5.html')"},
+            {"id":9336,"name":"3.3.6 冷却风扇一直运转","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_6.html')"},
+            {"id":9337,"name":"3.3.7 冷却风扇不工作","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_7.html')"},
+            {"id":9338,"name":"3.3.8 发动机过热","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_8.html')"},
+            {"id":9339,"name":"3.3.9 冷却液流失","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_9.html')"},
+            {"id":93310,"name":"3.3.10 节温器的诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_10.html')"},
+            {"id":93311,"name":"3.3.11 发动机不能达到正常工作温度","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_11.html')"},
+            {"id":93312,"name":"3.3.12 压力盖测试","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_12.html')"},
+            {"id":93313,"name":"3.3.13 冷却系统泄漏测试（二氧化碳测试）","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_13.html')"},
+            {"id":93314,"name":"3.3.14 冷却系统泄漏测试（压力测试）","isParent":false,"checked":false,"chkDisabled":false,"pId":933,"click":"cha('9_4_3_14.html')"},
+
+            {"id":934,"name":"3.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":93},
+            {"id":9341,"name":"3.4.1 冷却风扇的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":934,"click":"cha('9_4_5_1.html')"},
+            {"id":9342,"name":"3.4.2 冷却系统的说明与操作（1.5升L3G）","isParent":false,"checked":false,"chkDisabled":false,"pId":934,"click":"cha('9_4_5_2.html')"},
+            {"id":9343,"name":"3.4.3 冷却系统的说明与操作（1.5升LFV）","isParent":false,"checked":false,"chkDisabled":false,"pId":934,"click":"cha('9_4_5_3.html')"},
+            {"id":935,"name":"3.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":93},
+            {"id":9351,"name":"3.5.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":935,"click":"cha('9_4_6_1.html')"},
+
+        ];
+        var data4 = [
+            {"id":1,"name":"1 数据通信","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":11,"name":"1.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":1},
+            {"id":111,"name":"1.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":11,"click":"cha('11.1.1.1.html')"},
+            {"id":12,"name":"1.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":1},
+            {"id":121,"name":"1.2.1 数据通信示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":12,"click":"cha('11121.html')"},
+            {"id":122,"name":"1.2.2 车身控制系统示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":12,"click":"cha('11122.html')"},
+
+            {"id":13,"name":"1.3 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":1},
+            {"id":131,"name":"1.3.1 控制模块U代码列表","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11131.html')"},
+            {"id":132,"name":"1.3.2 DTC B1000","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11132.html')"},
+            {"id":133,"name":"1.3.3 DTC B1001","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11133.html')"},
+            {"id":134,"name":"1.3.4 DTC B101D","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11134.html')"},
+            {"id":135,"name":"1.3.5 DTC B101E","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11135.html')"},
+            {"id":136,"name":"1.3.6 DTC C056D","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11136.html')"},
+            {"id":137,"name":"1.3.7 DTC C056E","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11137.html')"},
+            {"id":138,"name":"1.3.8 DTC P0601-P0607、P060A-P060C、P062F、P16E9-P16F0或P262B","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11138.html')"},
+            {"id":139,"name":"1.3.9 DTC U0020","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('11139.html')"},
+            {"id":1310,"name":"1.3.10 DTC U0028","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111310.html')"},
+            {"id":1311,"name":"1.3.11 DTC U0029","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111311.html')"},
+            {"id":1312,"name":"1.3.12 DTC U0073或U2100","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111312.html')"},
+            {"id":1313,"name":"1.3.13 DTC U0074","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111313.html')"},
+            {"id":1314,"name":"1.3.14 DTC U0077","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111314.html')"},
+            {"id":1315,"name":"1.3.15 DTC U0078","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111315.html')"},
+            {"id":1316,"name":"1.3.16 DTC U0100-U02FF（U01B0除外）","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111316.html')"},
+            {"id":1317,"name":"1.3.17 DTC U0100-U02FF（U01B0）","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111317.html')"},
+            {"id":1318,"name":"1.3.18 DTC U0300-U0336","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111318.html')"},
+            {"id":1319,"name":"1.3.19 DTC U0400-U05FF","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111319.html')"},
+            {"id":1320,"name":"1.3.20 DTC U1500-U15FF","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111320.html')"},
+            {"id":1321,"name":"1.3.21 DTC U1814","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111321.html')"},
+            {"id":1322,"name":"1.3.22 DTC U18A2","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111322.html')"},
+            {"id":1323,"name":"1.3.23 DTC U18B9-U18BF","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111323.html')"},
+            {"id":1324,"name":"1.3.24 DTC U2098","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111324.html')"},
+            {"id":1325,"name":"1.3.25 DTC U2099","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111325.html')"},
+            {"id":1326,"name":"1.3.26 DTC U2616","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111326.html')"},
+            {"id":1327,"name":"1.3.27 DTC U3000","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111327.html')"},
+            {"id":1328,"name":"1.3.28 DTC U3012","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111328.html')"},
+            {"id":1329,"name":"1.3.29 症状 - 数据通信","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111329.html')"},
+            {"id":1330,"name":"1.3.30 故障诊断仪不通电","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111330.html')"},
+            {"id":1331,"name":"1.3.31 故障诊断仪不与高速GMLAN设备进行通信","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111331.html')"},
+            {"id":1332,"name":"1.3.32 故障诊断仪不与低速GMLAN设备进行通信","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111332.html')"},
+            {"id":1333,"name":"1.3.33 数据链路参考","isParent":false,"checked":false,"chkDisabled":false,"pId":13,"click":"cha('111333.html')"},
+
+            {"id":14,"name":"1.4 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":1},
+            {"id":141,"name":"1.4.1 车身控制系统的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":14,"click":"cha('11151.html')"},
+            {"id":143,"name":"1.4.2 数据链路通信的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":14,"click":"cha('11152.html')"},
+            {"id":15,"name":"1.5 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":1},
+            {"id":151,"name":"1.5.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":15,"click":"cha('11161.html')"},
+
+            {"id":2,"name":"2 电源插座","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":21,"name":"2.1 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":2},
+            {"id":211,"name":"2.1.1 点烟器/电源插座示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":21,"click":"cha('11211.html')"},
+
+            {"id":22,"name":"2.2 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":2},
+            {"id":221,"name":"2.2.1 症状 - 电源插座","isParent":false,"checked":false,"chkDisabled":false,"pId":22,"click":"cha('11221.html')"},
+            {"id":222,"name":"2.2.2 电源插座故障","isParent":false,"checked":false,"chkDisabled":false,"pId":22,"click":"cha('11222.html')"},
+
+            {"id":23,"name":"2.3 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":2},
+            {"id":231,"name":"2.3.1 电源插座的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":23,"click":"cha('11241.html')"},
+
+            {"id":24,"name":"2.4 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":2},
+            {"id":241,"name":"2.4.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":24,"click":"cha('11251.html')"},
+
+            {"id":3,"name":"3 接线系统和电源管理","isParent":true,"checked":false,"chkDisabled":false,"pId":0},
+            {"id":31,"name":"3.1 规格","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":311,"name":"3.1.1 紧固件紧固规格","isParent":false,"checked":false,"chkDisabled":false,"pId":31},/*todo:*/
+
+            {"id":32,"name":"3.2 示意图和布线图","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":321,"name":"3.2.1 线束布线视图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":322,"name":"3.2.2 如何使用电气示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":323,"name":"3.2.3 电气示意图符号","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":324,"name":"3.2.4 车辆分区策略","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":325,"name":"3.2.5 示意图常规选装件代码列表","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":326,"name":"3.2.6 主电气示意图图标","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":327,"name":"3.2.7 电源分布示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":328,"name":"3.2.8 电源模式示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":329,"name":"3.2.9 点火锁定器示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+            {"id":3210,"name":"3.2.10 搭铁分布示意图","isParent":false,"checked":false,"chkDisabled":false,"pId":32},/*todo:*/
+
+            {"id":33,"name":"3.3 部件定位图","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":331,"name":"3.3.1 主电气部件列表","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":332,"name":"3.3.2 车辆前部/发动机舱部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":333,"name":"3.3.3 动力系统部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":334,"name":"3.3.4 仪表板/中控台部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":335,"name":"3.3.5 乘客舱/车顶部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":336,"name":"3.3.6 车门部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":337,"name":"3.3.7 行李厢/车辆后部部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":338,"name":"3.3.8 车轮/车底部件视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":339,"name":"3.3.9 搭铁视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":3310,"name":"3.3.10 电气中心识别视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":3311,"name":"3.3.11 部件连接器端视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+            {"id":3312,"name":"3.3.12 直列式线束连接器端视图","isParent":false,"checked":false,"chkDisabled":false,"pId":33},/*TODO:*/
+
+            {"id":34,"name":"3.4 诊断信息和程序","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":341,"name":"3.4.1 DTC B097B","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11341.html')"},
+            {"id":342,"name":"3.4.2 DTC B097C","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11342.html')"},
+            {"id":343,"name":"3.4.3 DTC B1370（组合仪表）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11343.html')"},
+            {"id":344,"name":"3.4.4 DTC B1370-B1379、B1380-B1389或B1440-B1443","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11344.html')"},
+            {"id":345,"name":"3.4.5 DTC B1445（车身控制模块）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11345.html')"},
+            {"id":346,"name":"3.4.6 DTC B1445（电源变压器）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11346.html')"},
+            {"id":347,"name":"3.4.7 DTC B144B","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11347.html')"},
+            {"id":348,"name":"3.4.8 DTC B144D","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11348.html')"},
+            {"id":349,"name":"3.4.9 DTC B1451","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11349.html')"},
+            {"id":3410,"name":"3.4.10 DTC B147E或B147F（带KL9）","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*todo*/
+            {"id":3411,"name":"3.4.11 DTC B147E或B147F（不带KL9）","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3412,"name":"3.4.12 DTC B305E","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3413,"name":"3.4.13 DTC P2534或P2535","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3414,"name":"3.4.14 DTC P2537","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3415,"name":"3.4.15 症状 - 接线系统","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3416,"name":"3.4.16 变速器处于任何档位时，点火开关可以/无法关闭（ATH/BTM）","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3417,"name":"3.4.17 变速器处于任何档位时，点火开关可以/无法关闭（不带ATH/BTM）","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3418,"name":"3.4.18 点火模式开关指示灯故障","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3419,"name":"3.4.19 电源模式不匹配（不带KL9）","isParent":false,"checked":false,"chkDisabled":false,"pId":34},/*TODO:*/
+            {"id":3420,"name":"3.4.20 电源模式不匹配（带KL9）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.20.htm')"},
+            {"id":3421,"name":"3.4.21 保持型附件电源故障","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.21.htm')"},
+            {"id":3422,"name":"3.4.22 车辆不会改变电源模式","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.22.htm')"},
+            {"id":3423,"name":"3.4.23 通用电气诊断","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.23.htm')"},
+            {"id":3424,"name":"3.4.24 检查售后加装附件","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.24.htm')"},
+            {"id":3425,"name":"3.4.25 电路测试","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.25.htm')"},
+            {"id":3426,"name":"3.4.26 使用连接器测试适配器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.26.htm')"},
+            {"id":3427,"name":"3.4.27 探测电气连接器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.27.htm')"},
+            {"id":3428,"name":"3.4.28 用数字式万用表进行故障排除","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.28.htm')"},
+            {"id":3429,"name":"3.4.29 用测试灯进行故障排除","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.29.htm')"},
+            {"id":3430,"name":"3.4.30 使用装有保险丝的跨接线","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.30.htm')"},
+            {"id":3431,"name":"3.4.31 测量电压","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.31.htm')"},
+            {"id":3432,"name":"3.4.32 测量电压降","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.32.htm')"},
+            {"id":3433,"name":"3.4.33 测量频率","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.33.htm')"},
+            {"id":3434,"name":"3.4.34 测试搭铁和低电平参考电压电路","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.34.htm')"},
+            {"id":3435,"name":"3.4.35 导通性测试","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.35.htm')"},
+            {"id":3436,"name":"3.4.36 测试是否对搭铁短路","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.36.htm')"},
+            {"id":3437,"name":"3.4.37 测试是否对电压短路","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4..37.htm')"},
+            {"id":3438,"name":"3.4.38 测试是否存在间歇性故障和不良连接","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.38.htm')"},
+            {"id":3439,"name":"3.4.39 引起间歇故障情况","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.39.htm')"},
+            {"id":3440,"name":"3.4.40 测试间歇性电气故障","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.40.htm')"},
+            {"id":3441,"name":"3.4.41 故障诊断仪快照程序","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.41.htm')"},
+            {"id":3442,"name":"3.4.42 电路保护 - 保险丝","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.42.htm')"},
+            {"id":3443,"name":"3.4.43 电路保护 - 断路器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.43.htm')"},
+            {"id":3444,"name":"3.4.44 电路保护 - 易熔线","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.44.htm')"},
+            {"id":3445,"name":"3.4.45 线路修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.45.htm')"},
+            {"id":3446,"name":"3.4.46 修理损坏的导线绝缘层","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.46.htm')"},
+            {"id":3447,"name":"3.4.47 同轴电缆修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.47.htm')"},
+            {"id":3448,"name":"3.4.48 扁平导线的修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.48.htm')"},
+            {"id":3449,"name":"3.4.49 折叠导线的修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.49.htm')"},
+            {"id":3450,"name":"3.4.50 高温线路修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.50.htm')"},
+            {"id":3451,"name":"3.4.51 加热型氧传感器线路修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.51.htm')"},
+            {"id":3452,"name":"3.4.52 用接头套管连接铜芯导线","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.52.htm')"},
+            {"id":3453,"name":"3.4.53 连接绞合线或屏蔽电缆","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.53.htm')"},
+            {"id":3454,"name":"3.4.54 连接直列式线束二极管","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.54.htm')"},
+            {"id":3455,"name":"3.4.55 辅助充气式约束系统/辅助约束系统线路修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.55.htm')"},
+            {"id":3456,"name":"3.4.56 连接器修理","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.56.htm')"},
+            {"id":3457,"name":"3.4.57 连接器定位器锁","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.57.htm')"},
+            {"id":3458,"name":"3.4.58 端子定位器锁","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.58.htm')"},
+            {"id":3459,"name":"3.4.59 AFL/EPC连接器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.59.htm')"},
+            {"id":3460,"name":"3.4.60 Bosch连接器（BSK）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.60.htm')"},
+            {"id":3461,"name":"3.4.61 Bosch连接器（0.64）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.61.htm')"},
+            {"id":3462,"name":"3.4.62 Bosch连接器（2.8JPT）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.62.htm')"},
+            {"id":3463,"name":"3.4.63 Bosch连接器（ECM）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.63.htm')"},
+            {"id":3464,"name":"3.4.64 Delphi连接器（Weather Pack）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.64.htm')"},
+            {"id":3465,"name":"3.4.65 Delphi连接器（推紧式）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.65.htm')"},
+            {"id":3466,"name":"3.4.66 Delphi连接器（拔出锁紧式）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.66.htm')"},
+            {"id":3467,"name":"3.4.67 Delphi连接器（Micro-Pack 100W）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.67.htm')"},
+            {"id":3468,"name":"3.4.68 Delphi连接器（Micro .64）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.68.htm')"},
+            {"id":3469,"name":"3.4.69 Delphi连接器（12路）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.69.htm')"},
+            {"id":3470,"name":"3.4.70 Delphi连接器（转向机）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.70.htm')"},
+            {"id":3471,"name":"3.4.71 FCI连接器（操纵杆锁）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.71.htm')"},
+            {"id":3472,"name":"3.4.72 FCI连接器（辅助充气式约束系统）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.72.htm')"},
+            {"id":3473,"name":"3.4.73 FEP连接器（转向机）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.73.htm')"},
+            {"id":3474,"name":"3.4.74 JST连接器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.74.htm')"},
+            {"id":3475,"name":"3.4.75 Kostal连接器（预热塞控制模块）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.75.htm')"},
+            {"id":3476,"name":"3.4.76 Kostal连接器（变速器）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.76.htm')"},
+            {"id":3477,"name":"3.4.77 Molex连接器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.77.htm')"},
+            {"id":3478,"name":"3.4.78 Sumitomo连接器","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.78.htm')"},
+            {"id":3479,"name":"3.4.79 Tyco/AMP连接器（CM42路）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.79.htm')"},
+            {"id":3480,"name":"3.4.80 Tyco/AMP连接器（传感器）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.80.htm')"},
+            {"id":3481,"name":"3.4.81 Tyco/AMP连接器（0.25盖）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.81.htm')"},
+            {"id":3482,"name":"3.4.82 Tyco/AMP连接器（43路）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.82.htm')"},
+            {"id":3483,"name":"3.4.83 Tyco/AMP连接器（车门模块）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.83.htm')"},
+            {"id":3484,"name":"3.4.84 Tyco/AMP连接器（102路直列式）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.84.htm')"},
+            {"id":3485,"name":"3.4.85 Tyco/AMP连接器（座椅）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.85.htm')"},
+            {"id":3486,"name":"3.4.86 Tyco/AMP连接器（辅助充气式约束系统）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.86.htm')"},
+            {"id":3487,"name":"3.4.87 Yazaki连接器（2路）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.87.htm')"},
+            {"id":3488,"name":"3.4.88 Yazaki连接器（16路）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.88.htm')"},
+            {"id":3489,"name":"3.4.89 修理连接器端子（终端引线修理）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.89.htm')"},
+            {"id":3490,"name":"3.4.90 修理连接器端子（端子的修理）","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.90.htm')"},
+            {"id":3491,"name":"3.4.91 端子拆卸","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.91.htm')"},
+            {"id":3492,"name":"3.4.92 点火钥匙无法从点火开关锁芯上插入、转动或取下","isParent":false,"checked":false,"chkDisabled":false,"pId":34,"click":"cha('11.3.4.92.htm')"},
+
+            {"id":35,"name":"3.5 说明与操作","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":351,"name":"3.5.1 电子驻车锁的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":35,"click":"cha('11.3.6.1.htm')"},
+            {"id":352,"name":"3.5.2 电源模式的说明与操作","isParent":false,"checked":false,"chkDisabled":false,"pId":35,"click":"cha('11.3.6.2.htm')"},
+            {"id":353,"name":"3.5.3 保持型附件电源的说明与操作（不带BTM）","isParent":false,"checked":false,"chkDisabled":false,"pId":35,"click":"cha('11.3.6.3.htm')"},
+            {"id":354,"name":"3.5.4 保持型附件电源的说明与操作（带BTM）","isParent":false,"checked":false,"chkDisabled":false,"pId":35,"click":"cha('11.3.6.4.htm')"},
+
+            {"id":36,"name":"3.6 专用工具和设备","isParent":true,"checked":false,"chkDisabled":false,"pId":3},
+            {"id":361,"name":"3.6.1 专用工具","isParent":false,"checked":false,"chkDisabled":false,"pId":36,"click":"cha('11.3.7.htm')"}
+
+        ];
+
+        /*  var checkSetting =
+         {
+         check: {
+         enable: true,
+         chkboxType: { "Y": "ps", "N": "ps" }
+         },
+         data: {
+         simpleData: {
+         enable: true
+         }
+         },
+         view: {
+         nameIsHTML: true
+         }
+         };
+
+         var radiocheckSetting =
+         {
+         check: {
+         enable: true,
+         chkboxType: { "Y": "ps", "N": "ps" },
+         chkStyle: "radio",
+         radioType: "all" // 这是互斥的层级，可以设置"level"和"all"
+         },
+         data: {
+         simpleData: {
+         enable: true
+         }
+         },
+         view: {
+         nameIsHTML: true
+         }
+         };*/
+        $(".file .file-body").css("margin-left","140px");//内容居中
+        var showSetting =
+        {
+            check: {
+                enable: false,
+                chkboxType: { "Y": "ps", "N": "ps" }
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            view:{
+                showIcon:true,
+                openIcon:true,
+                nameIsHTML: true
+            }
+        };
+//        $.fn.zTree.init($("#ztree"), checkSetting, data1);
+//        $.fn.zTree.init($("#ztree0"), radiocheckSetting, data);
+        $.fn.zTree.init($("#ztree1"), showSetting, data1);
+        $.fn.zTree.init($("#ztree2"), showSetting, data2);
+        $.fn.zTree.init($("#ztree3"), showSetting, data3);
+        $.fn.zTree.init($("#ztree4"), showSetting, data4);
+        //var aaaa = data1[0].id;
+        //console.log(aaaa.toString().length)
+
+    })(jQuery);
+
+
+
+
+    var scale=1;
+    function  Amplification(id){
+        if(id==1){
+            scale=scale+0.2;
+        }else if(id==2){
+            scale=scale-0.2;
+        }else{
+            scale=1;
+        }
+        $(".file .file-body").css({"-ms-transform-origin":"0% 0%","-weikit-transform-origin":"0% 0%","-moz-transform-origin":"0% 0%","transform-origin":"0% 0%"});
+        $(".file .file-body").css("transform","scale("+scale+")");
+//        $(".file .file-body").css("transform-origin","left top");
+
+
+    }
+    function cha(urll){
+        ctext = $.ajax({
+            url:"template/file/data/"+urll+"",
+            async:false
+        });
+        $('.file .file-body').html(ctext.responseText)
+    }
+</script>
+

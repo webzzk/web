@@ -1,0 +1,37 @@
+<!--后氧传感气-->
+<div class="fd-bg fd-b52b">
+    <div class="fd-zz" ng-click="backPage('engine',486,462)"></div>
+    <div class="b52b-head-install" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install=='1'"></div>
+    <div class="b52b-head-install-hot" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_B52B_Conn_x_Install','2','b52b')"></div>
+    <div class="b52b-head-out" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install=='0'" title="后氧传感器"></div>
+    <div class="b52b-head-out-hot" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install=='0'&&pageServicePdata.b52b_tearDown" ng-click="ctClose('In1Sen_B52B_Conn_x_Install','1','b52b')"></div>
+    <!--更换零件-->
+    <div class="b52b-light" status="bj-b52b" ng-show="!pageServicePdata.b52b_tearDown"></div>
+    <div id="mg-b52b" class="ho014 oxygen" ng-click="showMsg('mg-b52b','请选择氧传感器专用套筒')" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install== '0'&&pageServicePdata.b52b_tearDown"></div>
+<div class="ho014 b52b_install" ng-show="!pageServicePdata.b52b_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-b52b-line" class="b52b-line-hot line" ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install== '0'" ></div>
+    <div class="b52b-line" status="bj-b52b-line"></div>
+    <!--后氧传感气插头打开和本体热区-->
+    <div ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install== '0'">
+        <a class="HO006" title="1" wybredPosition="1" wybblackPosition="1" h_x="340" h_y="209" rqPosition="137" h_href="b52b" ></a>
+        <a class="HO007" title="2" wybredPosition="1" wybblackPosition="1" h_x="362" h_y="205" rqPosition="139" h_href="b52b" ></a>
+        <a class="HO008" title="3" wybredPosition="1" wybblackPosition="1" h_x="385" h_y="200" rqPosition="141" h_href="b52b" ></a>
+        <a class="HO009" title="4" wybredPosition="1" wybblackPosition="1" h_x="397" h_y="193" rqPosition="143" h_href="b52b" ></a>
+        <div ng-show="pageServicePdata.b52b_tearDown">
+            <a class="HO010" title="1" wybredPosition="1" wybblackPosition="1" h_x="411" h_y="335" rqPosition="4079" h_href="b52b" ></a>
+            <a class="HO011" title="2" wybredPosition="1" wybblackPosition="1" h_x="398" h_y="338" rqPosition="4080" h_href="b52b" ></a>
+            <a class="HO012" title="3" wybredPosition="1" wybblackPosition="1" h_x="374" h_y="342" rqPosition="4081" h_href="b52b" ></a>
+            <a class="HO013" title="4" wybredPosition="1" wybblackPosition="1" h_x="358" h_y="343" rqPosition="4082" h_href="b52b" ></a>
+        </div>
+    </div>
+    <!--后氧传感气插头背部热区-->
+    <div ng-show="pageServicePint.In1Sen_B52B_Conn_x_Install== '1'">
+        <a class="HO002" title="1" wybredPosition="2" wybblackPosition="2" h_x="375" h_y="310" rqPosition="138" h_href="b52b" ></a>
+        <a class="HO003" title="2" wybredPosition="2" wybblackPosition="2" h_x="394" h_y="304" rqPosition="140" h_href="b52b" ></a>
+        <a class="HO004" title="3" wybredPosition="2" wybblackPosition="2" h_x="410" h_y="300" rqPosition="142" h_href="b52b" ></a>
+        <a class="HO005" title="4" wybredPosition="2" wybblackPosition="2" h_x="429" h_y="296" rqPosition="144" h_href="b52b" ></a>
+    </div>
+
+
+</div>

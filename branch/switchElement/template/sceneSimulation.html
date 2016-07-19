@@ -1,0 +1,42 @@
+<div class="sceneSimulation" ng-controller="switchCtrl" ng-show="switchServiceOdata.sceneSimulationStatus">
+<div class="ani-trunk" ng-show="switchServiceOdata.s58bStatus&&switchServiceOdata.s58b">
+    <div class="ani-trunk-bg">
+        <div class="ani-trunk-cap1" ng-show="pageServicePdata.trunkStatus=='0'">
+        </div>
+        <div class="ani-trunk-cap2" ng-show="pageServicePdata.trunkStatus=='1'&&pageServicePdata.trunk=='0'">
+        </div>
+        <div class="ani-trunk-cap3" ng-show="pageServicePdata.trunk=='1'">
+        </div>
+    </div>
+</div>
+    <div class="ani-door" ng-show="switchServiceOdata.s79dStatus&&switchServiceOdata.s79d">
+        <div class="ani-door-bg"></div>
+        <div class="ani-window"></div>
+        <div class="ani-door-remirror"></div>
+    </div>
+    <div class="wiper" ng-show="switchServiceOdata.s82swtStatus&&switchServiceOdata.s82swt">
+        <div class="wiper1-1" ng-show="switchServiceOdata.wiper1"></div>
+        <div class="wiper1-2" ng-show="switchServiceOdata.wiper2"></div>
+        <div class="wiper1-3" ng-show="switchServiceOdata.wiper3"></div>
+        <div class="wiper1-4" ng-show="switchServiceOdata.wiper4"></div>
+        <div class="wiper1-5" ng-show="switchServiceOdata.wiper5"></div>
+        <div class="wiper1-6" ng-show="switchServiceOdata.wiper6"></div>
+        <div class="wiper2-1" ng-show="switchServiceOdata.wiper1"></div>
+        <div class="wiper2-2" ng-show="switchServiceOdata.wiper2"></div>
+        <div class="wiper2-3" ng-show="switchServiceOdata.wiper3"></div>
+        <div class="wiper2-4" ng-show="switchServiceOdata.wiper4"></div>
+        <div class="wiper2-5" ng-show="switchServiceOdata.wiper5"></div>
+        <div class="wiper2-6" ng-show="switchServiceOdata.wiper6"></div>
+    </div>
+    <div class="doorlock" ng-show="switchServiceOdata.s13dStatus&&switchServiceOdata.s13d">
+        <div class="dooropen" ng-show="switchServiceOdata.doorStatus"></div>
+        <div class="doorclose" ng-show="!switchServiceOdata.doorStatus"></div>
+    </div>
+    <div class="dh-light" ng-show="switchServiceOdata.s30swtStatus&&switchServiceOdata.s30swt">
+        <div class="light-right-close" ng-show="pageServicePint.In1Veh_S30Swt_Close_x_x=='1'&&pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='0'&&switchServiceOout.Out1Veh_x_S78_RightBeam_x=='1'&&switchServiceOout.Out1Veh_x_S78_LowBeam_x=='1'"></div>
+        <div class="light-right-far" ng-show="pageServicePint.In1Veh_S30Swt_Close_x_x=='1'&&pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='1'&&switchServiceOout.Out1Veh_x_S78_RightBeam_x=='1'&&switchServiceOout.Out1Veh_x_S78_LowBeam_x=='1'"></div>
+        <div class="light-left-close" ng-show="pageServicePint.In1Veh_S30Swt_Close_x_x=='1'&&switchServiceOout.Out1Veh_x_S78_LeftBeam_x=='1'&&pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='0'&&switchServiceOout.Out1Veh_x_S78_LowBeam_x=='1'"></div>
+        <div class="light-left-far" ng-show="pageServicePint.In1Veh_S30Swt_Close_x_x=='1'&&pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='1'&&switchServiceOout.Out1Veh_x_S78_LeftBeam_x=='1'&&switchServiceOout.Out1Veh_x_S78_LowBeam_x=='1'"></div>
+    </div>
+    <div class="coe20" ng-click="switchHide('sceneSimulation')"></div>
+</div>

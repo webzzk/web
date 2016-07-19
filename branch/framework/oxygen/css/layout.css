@@ -1,0 +1,31 @@
+
+.oxygenSocket{
+	z-index: 31;
+	position: absolute;
+	top: 235px;
+	left: 420px;
+	width: 104px;
+	height: 112px;
+	background: url(../images/oxygen.png) no-repeat 0 0;
+}
+.oxygenSocket-hot{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 104px;
+	height: 112px;
+	background: url(../images/oxygen_hot.png) no-repeat;
+}
+
+.coe2{ width:44px;
+	height:44px;
+	text-align:right;
+	position:absolute;
+	top: 0px;
+	left: 80px;
+	font-size:18px;
+	color:#fff;
+	cursor:pointer;
+	z-index: 1112;
+	background: url(../images/close.png) no-repeat center center;
+}

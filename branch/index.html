@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html ng-app="allsensorModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
+    <title>sbt别克威朗</title>
+    <link href="styles/global.css" rel="stylesheet"/>
+    <link href="styles/perfect-scrollbar.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="framework/dashboard/css/template.css" />
+    <link rel="stylesheet" href="framework/oxygen/css/layout.css" />
+    <link rel="stylesheet" href="framework/sparkplug/css/layout.css" />
+    <link rel="stylesheet" href="framework/diodelamp/css/layout.css" />
+    <link rel="stylesheet" href="framework/sata/css/layout.css" />
+    <link rel="stylesheet" href="framework/oscilloscope/css/layout.css" />
+    <link rel="stylesheet" href="framework/ignltionTestDevice/css/layout.css" />
+    <link rel="stylesheet" href="switchElement/css/layout.css" />
+    <link href="css/zTreeStyle.css" rel="stylesheet"/>
+    <link href="css/file.css" rel="stylesheet"/>
+    <link href="css/fileStyle.css" rel="stylesheet"/>
+
+    <link href="css/zTreeStyle.css" rel="stylesheet"/>
+    <link href="css/file.css" rel="stylesheet"/>
+    <link href="css/fileStyle.css" rel="stylesheet"/>
+<!--<style type="text/css">
+    #hbg {
+        width:100%;
+        position:absolute;
+        background:#000;
+        z-index:108;
+        top:0;
+        left:0;
+        height:2000px;
+
+    }
+</style>-->
+    <script type="text/javascript" src="framework/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="framework/angular1.2.13.js"></script>
+    <script type="text/javascript" src="framework/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="framework/angular-ui-router.js"></script>
+    <script type="text/javascript" src="framework/jquery.ztree.all-3.5.min.js"></script>
+</head>
+<body ng-controller="allsensorCtrl">
+    <div class="container" id="contain" style="position: relative">
+        <ng-include src="'template/menu.html'"></ng-include>
+        <div class="replaceLineMsg"></div>
+        <div class="prompt"></div>
+        <div id="view" ui-view  class="ui-page">
+        </div>
+        <repair></repair><!--维修工单-->
+        <ng-include src="'template/file.html'"></ng-include>
+            <!--<file></file>维修资料-->
+        <multimeter></multimeter><!--万用表-->
+        <obdscan></obdscan><!--诊断仪-->
+        <cylpressguage></cylpressguage><!--气缸压力表-->
+        <oxygen></oxygen><!--氧传感器拆卸工具-->
+        <sparkplug></sparkplug><!--火花塞套筒-->
+        <diodelamp></diodelamp>
+        <sata></sata>
+        <oscilloscope></oscilloscope>
+
+        <s30swt></s30swt><!--大灯开关-->
+        <s82swt></s82swt><!--雨刷开关-->
+        <s13d></s13d><!--车门开关-->
+        <s33></s33><!--喇叭开关-->
+        <s58b></s58b><!--后备箱开关-->
+        <s78swt></s78swt><!--灯光变幻开关-->
+        <s79d></s79d><!--车窗控制开关-->
+        <scene></scene><!--场景动画-->
+
+        <ignltionTestDevice></ignltionTestDevice><!--点火测试仪-->
+        <div  ng-controller="dataCtrl"></div>
+
+        <object  id="plugin0" type="application/x-xiaochejiangbk"  width="0" height="0">
+            <param name="onload" value="pluginLoaded" />
+        </object>
+
+        <div  ng-controller="dashboardCtrl" >
+            <div class="switch_meter"  ng-include="switchMeterSrc"></div><!--点火测试仪-->
+        </div>
+    </div>
+    <!--弹出层选择-->
+    <div id="errorPop" class="popup" style="display: none">
+        <div class="close" ng-click="colseError()"></div><!--关闭-->
+        <div style="margin:60px;font-size: 14px" class="content">
+            <div id="busy" style="display: none">系统繁忙！请与管理员联系。</div>
+            <div id="oldPlug" style="display: none;margin-top:6px;">插件版本较老，请更新插件。</div>
+            <div id="noPlug" style="display: none;margin-top:6px;">找不到插件，请按照最新插件。</div>
+
+        </div><!--内容-->
+        <div class="ensure" ng-click="colseError()"></div><!--确认-->
+    </div>
+
+</body>
+
+<!--begin 平台通信js-->
+<script type="text/javascript" src="js/communication/map.js"></script>
+<script type="text/javascript" src="js/communication/validate.js"></script>
+<script type="text/javascript" src="js/communication/adapter.js"></script>
+<script type="text/javascript" src="js/communication/dataObject.js"></script>
+<script type="text/javascript" src="js/communication/ajax.js"></script>
+<script type="text/javascript" src="js/communication/xcjDataService.js"></script>
+
+<!--end 平台通信js-->
+
+<script type="text/javascript" src="js/perfect-scrollbar.with-mousewheel.min.js"></script>
+<script type="text/javascript" src="js/angularjs/app.js"></script>
+<script type="text/javascript" src="js/angularjs/controller.js"></script>
+<script type="text/javascript" src="js/angularjs/Services.js"></script>
+<script type="text/javascript" src="js/angularjs/eventService.js"></script>
+<script type="text/javascript" src="js/angularjs/uiRoute.js"></script>
+
+<link rel="stylesheet" href="framework/multimeter/css/multimeter.css"/><!--万用表的样式-->
+<script type="text/javascript" src="framework/multimeter/js/angularJs/app.js"></script><!--万用表的app-->
+<script type="text/javascript" src="framework/multimeter/js/angularJs/controller.js"></script><!--万用表的controller-->
+<script type="text/javascript" src="framework/multimeter/js/angularJs/Service.js"></script><!--万用表的Service-->
+<link rel="stylesheet" href="framework/obdscan/css/style.css"/><!--诊断仪的样式-->
+
+<script type="text/javascript" src="framework/obdscan/js/app.js"></script><!--诊断仪的app-->
+<script type="text/javascript" src="framework/obdscan/js/controller.js"></script><!--诊断仪的controller-->
+<script type="text/javascript" src="framework/obdscan/js/Service.js"></script><!--诊断仪的Service-->
+
+<link rel="stylesheet" href="framework/cylpressguage/css/layout.css" /><!--气缸压力表的css-->
+<script type="text/javascript" src="framework/cylpressguage/js/controller.js" ></script><!--气缸压力表的controller-->
+<script type="text/javascript" src="framework/cylpressguage/js/Service.js" ></script><!--气缸压力表的Service-->
+<script type="text/javascript" src="framework/dashboard/js/controller.js" ></script><!--controller-->
+<script type="text/javascript" src="framework/dashboard/js/Service.js" ></script><!--Service-->
+<script type="text/javascript" src="framework/dashboard/js/animate.js" ></script><!--Service-->
+<script type="text/javascript" src="framework/ignltionTestDevice/js/controller.js" ></script><!--点火测试仪controller-->
+<script type="text/javascript" src="framework/ignltionTestDevice/js/Service.js" ></script><!--点火测试仪Service-->
+
+
+<script type="text/javascript" src="framework/oxygen/js/controller.js" ></script><!--氧传感器拆卸工具controller-->
+<script type="text/javascript" src="framework/oxygen/js/Service.js" ></script><!--氧传感器拆卸工具Service-->
+<script type="text/javascript" src="framework/sparkplug/js/controller.js" ></script><!--烟雾剂的controller-->
+<script type="text/javascript" src="framework/sparkplug/js/Service.js" ></script><!--烟雾剂的的Service-->
+
+<script type="text/javascript" src="framework/diodelamp/js/controller.js" ></script><!--烟雾剂的controller-->
+<script type="text/javascript" src="framework/diodelamp/js/Service.js" ></script><!--烟雾剂的的Service-->
+<script type="text/javascript" src="framework/sata/js/controller.js" ></script><!--烟雾剂的controller-->
+<script type="text/javascript" src="framework/sata/js/Service.js" ></script><!--烟雾剂的的Service-->
+<script type="text/javascript" src="framework/oscilloscope/js/controller.js" ></script><!--示波仪controller-->
+<script type="text/javascript" src="framework/oscilloscope/js/Service.js" ></script><!--示波仪Service-->
+
+<script type="text/javascript" src="js/angularjs/dataController.js"></script>
+
+<script type="text/javascript" src="js/angularjs/sbtService.js"></script>
+<script type="text/javascript" src="js/angularjs/validate.js"></script>
+<script type="text/javascript" src="switchElement/js/controller.js" ></script>
+<script type="text/javascript" src="switchElement/js/Services.js" ></script>
+<script>
+    alert("因后台/插件/学习系统导致部分内容无法呈现，只展示部分前端页面(发动机舱)及部分功能");
+</script>
+</html>

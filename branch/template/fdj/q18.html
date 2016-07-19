@@ -1,0 +1,34 @@
+<div class="fd-bg fd-q18">
+    <div class="fd-zz" ng-click="backPage('fdjx')"></div>
+    <div class="q18-head-install" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install=='1'"></div>
+    <div class="fpr001" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_Q18_Conn_x_Install','2','q18')"></div>
+    <div class="q18-head-out" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install=='0'"></div>
+    <div class="fpr002" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install=='0'&&pageServicePdata.q18_tearDown" ng-click="ctClose('In1Sen_Q18_Conn_x_Install','1','q18')"></div>
+    <!--更换线束-->
+    <div id="bj-q18-line"  class="q18-line-hot line" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install== '0'" ></div>
+    <div class="q18-line" status="bj-q18-line"></div>
+    <!--更换零件-->
+    <div class="q18-light" status="bj-q18" ng-show="!pageServicePdata.q18_tearDown"></div>
+    <div id="msg-q18" class="fpr000 bj-q18" ng-click="tearDownBody('q18')" ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install== '0'&&pageServicePdata.q18_tearDown" title="燃油压力调节器"></div>
+    <div  class="fpr000 q18_install" ng-show="!pageServicePdata.q18_tearDown"></div>
+
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="fpr007" title="1" wybredPosition="1" wybblackPosition="1" h_y="256" h_x="470" rqPosition="2179" h_href="q18" ></a>
+        <a class="fpr008" title="2" wybredPosition="1" wybblackPosition="1" h_y="238" h_x="481" rqPosition="2181" h_href="q18" ></a>
+
+        <!--插座-->
+        <a class="fpr005" title="1" wybredPosition="1" wybblackPosition="1" h_y="363" h_x="419" rqPosition="4144" h_href="q18" ></a>
+        <a class="fpr006" title="2" wybredPosition="1" wybblackPosition="1" h_y="345" h_x="428" rqPosition="4145" h_href="q18" ></a>
+
+
+    </div>
+    <div ng-show="pageServicePint.In1Sen_Q18_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="fpr003" title="1" wybredPosition="2" wybblackPosition="2" h_y="345" h_x="422" rqPosition="2180" h_href="q18" ></a>
+        <a class="fpr004" title="2" wybredPosition="2" wybblackPosition="2" h_y="320" h_x="438" rqPosition="2182" h_href="q18" ></a>
+
+    </div>
+
+</div>

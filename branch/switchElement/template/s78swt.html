@@ -1,0 +1,10 @@
+<div class="s78swt" ng-controller="switchCtrl" ng-show="switchServiceOdata.s78swtStatus">
+<div class="s78swt-head-k" ng-show="pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='0'"></div>
+    <div class="s78swt-head" ng-show="pageServicePint.In1Veh_S78Swt_LowBeam_x_x=='1'"></div>
+    <div class="s78swt-body"></div>
+    <ul class="s78swt-states">
+        <li ng-click="pageServicePint.In1Veh_S78Swt_LowBeam_x_x='0';setHandle('ver903')"></li>
+        <li ng-click="pageServicePint.In1Veh_S78Swt_LowBeam_x_x='1';setHandle('ver905')"></li>
+    </ul>
+    <div  class="coe16" ng-click="switchHide('s78swt')"></div>
+</div>

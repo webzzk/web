@@ -1,0 +1,53 @@
+<div class="switch_meter" ng-controller="dashboardCtrl" >
+<div class="switch z_index_12 switch_btn">
+    <div class="key cursor_pointer" onclick="openSwitchMeter();" ng-click="openSwitchMeter();"></div>
+</div>
+<div class="meter z_index_14 radius dragSource" id="step4">
+    <div class="close cursor_pointer" onclick="closeSwitchShowBtn();" ng-click="closeSwitchShowBtn();"></div>
+    <div class="switch">
+        <div class="key"></div>
+        <span class="key_lock cursor_pointer" ng-mousedown="stallsAngle($event.target,1);"></span>
+        <span class="key_acc cursor_pointer" ng-mousedown="stallsAngle($event.target,2);"></span>
+        <span class="key_on cursor_pointer" ng-mousedown="stallsAngle($event.target,3);"></span>
+        <span class="key_start cursor_pointer" ng-mousedown="stallsAngle($event.target,4);"></span>
+    </div>
+    <div class="pedal">
+        <span class="pedal_brake cursor_move">0</span>
+        <span class="pedal_accelerator cursor_move">0</span>
+        <span class="lock" ng-click="lock_replace()"></span>
+    </div>
+    <div class="pointer">
+        <div class="abs pointer_water" ></div>
+        <div class="abs pointer_roate" ></div>
+        <div class="abs pointer_speed" ></div>
+        <div class="abs pointer_oil" ></div>
+    </div>
+    <div class="light">
+        <img class="lunTaiQiYa" ng-show="dashboardServiceDout." src="framework/dashboard/images/luntaiqiya.png"/>
+        <img class="tcs" ng-show="dashboardServiceDout." src="framework/dashboard/images/tcs.png"/>
+        <img class="guZhang" ng-show="dashboardServiceDout.Out1Dash_x_LED_MIL_Jud" src="framework/dashboard/images/guzhang.png"/>
+        <img class="abs" ng-show="dashboardServiceDout.Out1Dash_x_LED_ABS_Jud" src="framework/dashboard/images/abs.png"/>
+        <img class="wxzd" ng-show="dashboardServiceDout." src="framework/dashboard/images/wxzd.png"/>
+        <img class="zhiDong" ng-show="dashboardServiceDout.Out1Dash_x_LED_Brake_Jud" src="framework/dashboard/images/zhidong.png"/>
+        <img class="zdjg" ng-show="dashboardServiceDout." src="framework/dashboard/images/zhidongjinggao.png"/>
+
+
+        <!--<img class="anQUan" ng-show="dashboardServiceDout.Out1Dash_x_LED_SafeBag_Jud" src="framework/dashboard/images/anquan.png"/>-->
+        <!--<img class="chongDian" ng-show="dashboardServiceDout.Out1Dash_x_LED_BATTFault_Jud" src="framework/dashboard/images/chongdian.png"/>-->
+        <!--<img class="esc" ng-show="dashboardServiceDout." src="framework/dashboard/images/esc.png"/>-->
+        <!--<img class="qiNang" ng-show="dashboardServiceDout.Out1Dash_x_LED_SafeBag_Jud" src="framework/dashboard/images/qinang.png"/>-->
+        <!--<img class="tcsOff" ng-show="dashboardServiceDout." src="framework/dashboard/images/tcs_off.png"/>-->
+        <!--<img class="youYa" ng-show="dashboardServiceDout.Out1Dash_x_LED_OilPre_Jud" src="framework/dashboard/images/youya.png"/>-->
+
+    </div>
+    <div style="width:96px;height:17px;position: absolute;top:110px;left:168px;color:#fff;z-index: 30;overflow: hidden">
+        <ul id="gzxs" style="width:96px;position: absolute;text-align: center;">
+            <li ng-show="dashboardServiceDout.Out1Eng_x_CheckVeh_x_x=='1'">请速检修车辆</li>
+            <li ng-show="dashboardServiceDout.Out1Eng_x_ForceDes_x_x=='1'">发动机动力降低</li>
+            <li ng-show="dashboardServiceDout.Out1Eng_x_ESC_x_x=='1'">检修电子稳定控制</li>
+            <li ng-show="dashboardServiceDout.Out1Eng_x_PowDes_x_x=='1'">发动机功率降低</li>
+        </ul>
+    </div>
+
+</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="fd-bg fd-q22">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="q22-head-install" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install=='1'"></div>
+    <div class="ia001" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_Q22_Conn_x_Install','2','q22')"></div>
+    <div class="q22-head-out" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install=='0'"></div>
+    <div class="ia002" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install=='0'&&pageServicePdata.q22_tearDown" ng-click="ctClose('In1Sen_Q22_Conn_x_Install','1','q22')"></div>
+    <!--更换线束-->
+    <div id="bj-q22-line"  class="q22-line-hot line line" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install== '0'" ></div>
+    <div class="q22-line" status="bj-q22-line"></div>
+    <!--更换零件-->
+    <div class="q22-light" status="bj-q22" ng-show="!pageServicePdata.q22_tearDown"></div>
+    <div id="msg-q22" class="ia000 bj-q22"  sata="hexagonal-55mm"  ng-click="tearDownBody('q22','1','q22')" ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install=='0'&&pageServicePdata.q22_tearDown"></div>
+    <div  class="ia000 q22_install" ng-show="!pageServicePdata.q22_tearDown"></div>
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="ia007" title="1" wybredPosition="1" wybblackPosition="1" h_y="159" h_x="408" rqPosition="201" h_href="q22" ></a>
+        <a class="ia008" title="2" wybredPosition="1" wybblackPosition="1" h_y="132" h_x="400" rqPosition="203" h_href="q22" ></a>
+
+        <!--插座-->
+        <div ng-show="pageServicePdata.q22_tearDown">
+            <a class="ia005" title="1" wybredPosition="1" wybblackPosition="1" h_y="504" h_x="239" rqPosition="4071" h_href="q22" ></a>
+            <a class="ia006" title="2" wybredPosition="1" wybblackPosition="1" h_y="540" h_x="239" rqPosition="4072" h_href="q22" ></a>
+        </div>
+    </div>
+    <div ng-show="pageServicePint.In1Sen_Q22_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="ia003" title="1" wybredPosition="2" wybblackPosition="2" h_y="515" h_x="200" rqPosition="202" h_href="q22" ></a>
+        <a class="ia004" title="2" wybredPosition="2" wybblackPosition="2" h_y="554" h_x="197" rqPosition="204" h_href="q22" ></a>
+
+
+    </div>
+</div>

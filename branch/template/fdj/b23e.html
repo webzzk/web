@@ -1,0 +1,35 @@
+<div class="fd-bg fd-b23e">
+    <div class="fd-zz" ng-click="backPage('engine',600,350)"></div>
+    <div class="b23e-head-install" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install=='1'"></div>
+    <div class="cp101" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_B23E_Conn_x_Install','2','b23e')"></div>
+    <div class="b23e-head-out" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install=='0'"></div>
+    <div class="cp102" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install=='0'&&pageServicePdata.b23e_tearDown" ng-click="ctClose('In1Sen_B23E_Conn_x_Install','1','b23e')"></div>
+    <!--更换零件-->
+    <div class="b23e-light" status="bj-b23e" ng-show="!pageServicePdata.b23e_tearDown"></div><!---->
+    <div id="msg-b23e" class="cp100 bj-b23e" sata="hexagonal-10mm" ng-click="showMsg('msg-b23e','请选择六角10MM套筒')" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install== '0'&&pageServicePdata.b23e_tearDown" title="排气凸轮轴位置传感器"></div>
+    <div  class="cp100 b23e_install" ng-show="!pageServicePdata.b23e_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-b23e-line" class="b23e-line-hot line" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install== '0'"></div><!-- -->
+    <div class="b23e-line" status="bj-b23e-line"></div>
+<!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="cp109" title="1" wybredPosition="1" wybblackPosition="1" h_y="555" h_x="357" rqPosition="2081" h_href="b23e" ></a>
+        <a class="cp110" title="2" wybredPosition="1" wybblackPosition="1" h_y="549" h_x="374" rqPosition="2083" h_href="b23e" ></a>
+        <a class="cp111" title="3" wybredPosition="1" wybblackPosition="1" h_y="543" h_x="393" rqPosition="2085" h_href="b23e" ></a>
+        <!--插座-->
+        <div ng-show="pageServicePdata.b23e_tearDown">
+            <a class="cp106" title="1" wybredPosition="1" wybblackPosition="1" h_y="476" h_x="297" rqPosition="4057" h_href="b23e" ></a>
+            <a class="cp107" title="2" wybredPosition="1" wybblackPosition="1" h_y="475" h_x="314" rqPosition="4058" h_href="b23e" ></a>
+            <a class="cp108" title="3" wybredPosition="1" wybblackPosition="1" h_y="475" h_x="332" rqPosition="4059" h_href="b23e" ></a>
+        </div>
+
+    </div>
+    <div ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="cp103" title="1" wybredPosition="2" wybblackPosition="2" h_y="472" h_x="283" rqPosition="2082" h_href="b23e" ></a>
+        <a class="cp104" title="2" wybredPosition="2" wybblackPosition="2" h_y="471" h_x="295" rqPosition="2084" h_href="b23e" ></a>
+        <a class="cp105" title="3" wybredPosition="2" wybblackPosition="2" h_y="467" h_x="316" rqPosition="2086" h_href="b23e" ></a>
+
+    </div>
+</div>

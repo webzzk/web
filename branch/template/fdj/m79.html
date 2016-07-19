@@ -1,0 +1,30 @@
+<div class="fd-bg fd-m79" switches="s82swt">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="m79-head-install" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install=='1'"></div>
+    <div class="wm001" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install=='1'" ng-click="ctOpen('In1Veh_M79_Conn_x_Install','2','m79')"></div>
+    <div class="m79-head-out" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install=='0'"></div>
+    <div class="wm002" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install=='0'&&pageServicePdata.m79_tearDown" ng-click="ctClose('In1Veh_M79_Conn_x_Install','1','m79')"></div>
+    <!--更换零件-->
+    <div class="m79-light" status="bj-m79" ng-show="!pageServicePdata.m79_tearDown"></div>
+    <div id="msg-m79" class="wm000 bj-m79" sata="hexagonal-10mm" ng-click="showMsg('msg-m79','请选择六角10MM套筒')" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install== '0'&&pageServicePdata.m79_tearDown"></div>
+    <div  class="wm000 m79_install" ng-show="!pageServicePdata.m79_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-m79-line" class="m79-line-hot line" ng-show="pageServicePint.In1Veh_M79_Conn_x_Install== '0'" ></div>
+    <div class="m79-line" status="bj-m79-line"></div>
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Veh_M79_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="wm011" title="1" wybredPosition="1" wybblackPosition="1" h_y="519" h_x="420" rqPosition="3099" h_href="m79" ></a>
+        <a class="wm012" title="2" wybredPosition="1" wybblackPosition="1" h_y="491" h_x="416" rqPosition="3101" h_href="m79" ></a>
+        <a class="wm013" title="3" wybredPosition="1" wybblackPosition="1" h_y="461" h_x="410" rqPosition="3103" h_href="m79" ></a>
+        <a class="wm014" title="4" wybredPosition="1" wybblackPosition="1" h_y="432" h_x="405" rqPosition="3105" h_href="m79" ></a>
+    </div>
+    <div ng-show="pageServicePint.In1Veh_M79_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="wm003" title="1" wybredPosition="2" wybblackPosition="2" h_y="469" h_x="320" rqPosition="3100" h_href="m79" ></a>
+        <a class="wm004" title="2" wybredPosition="2" wybblackPosition="2" h_y="492" h_x="331" rqPosition="3102" h_href="m79" ></a>
+        <a class="wm005" title="3" wybredPosition="2" wybblackPosition="2" h_y="509" h_x="347" rqPosition="3104" h_href="m79" ></a>
+        <a class="wm006" title="4" wybredPosition="2" wybblackPosition="2" h_y="521" h_x="360" rqPosition="3106" h_href="m79" ></a>
+    </div>
+
+</div>

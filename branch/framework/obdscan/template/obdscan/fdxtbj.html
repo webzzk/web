@@ -1,0 +1,151 @@
+<div class="header">
+    <div class="header1">小车匠诊断仪</div>
+    <div class="header2">汽车诊断/车身控制模块/读取数据流/防盗系统报警触发器数据</div>
+</div>
+<div class="body">
+    <div class="obdscan-bottom-bell">
+        <div class="ac">驻车制动状态</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingBrakeSta_x_x=='1'">未知</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingBrakeSta_x_x=='2'">已应用</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingBrakeSta_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">安全指示灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_SafeIndLed_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">超声波侵入传感器</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_UltrIntrSen_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_UltrIntrSen_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_UltrIntrSen_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">代客泊车开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ValetSwitch_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ValetSwitch_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ValetSwitch_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">检测到重新连接蓄电池</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ReConBatDete_x_x=='1'">否</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ReConBatDete_x_x=='2'">已是</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ReConBatDete_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">制动踏板已踩下</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrPedalStepped_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrPedalStepped_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrPedalStepped_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">制动变速器换档互锁电磁线圈执行器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrGeInlockSoAcIn_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrGeInlockSoAcIn_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrGeInlockSoAcIn_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">转向集锁定状态</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_SteeringLockSet_x_x=='1'">未知</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_SteeringLockSet_x_x=='2'">已应用</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_SteeringLockSet_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">车内物品防盗系统警报状态</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysAlert_x_x=='1'">未知</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysAlert_x_x=='2'">已解除</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysAlert_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">车内物品防盗系统解除直到车辆关闭</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_LiftAntiTheftSys_x_x=='1'">否</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_LiftAntiTheftSys_x_x=='2'">是</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_LiftAntiTheftSys_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">车内物品防盗系统触发器历史1</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis1_x_x=='1'">无</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis1_x_x=='2'">是</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis1_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">车内物品防盗系统触发器历史2</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis2_x_x=='1'">无</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis2_x_x=='2'">是</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis2_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">车内物品防盗系统触发器历史3</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis3_x_x=='1'">无</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis3_x_x=='2'">是</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEnHis3_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">当前车内物品防盗系统触发</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEn_x_x=='1'">否</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEn_x_x=='2'">点火电压</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_AnTheftSysEn_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">玻璃破裂</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrokenGlass_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrokenGlass_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_BrokenGlass_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">发动机舱盖位置</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_EngHatchPosition_x_x=='1'">已关闭</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_EngHatchPosition_x_x=='2'">开路</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_EngHatchPosition_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">喇叭继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornRelayInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornRelayInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornRelayInd_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">喇叭开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornSwitch_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornSwitch_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HornSwitch_x_x=='3'">故障</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
