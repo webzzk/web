@@ -1,1 +1,2 @@
-# this is my github
+## 写的东西好久没上传了，整理整理慢慢来
+![image](images/10000.jpg)
