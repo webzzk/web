@@ -1,0 +1,97 @@
+<div class="header">
+    <div class="header1">小车匠诊断仪</div>
+    <div class="header2">汽车诊断/车身控制模块/读取数据流/车辆接入数据</div>
+</div>
+<div class="body">
+    <div class="obdscan-bottom-bell">
+        <div class="ac">雨量传感器</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_RainSensor_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_RainSensor_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_RainSensor_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃洗涤器继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashReInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashReInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashReInd_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃洗涤器开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashSwt_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashSwt_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWashSwt_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器高速继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedReInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedReInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedReInd_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器高速开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedSwt_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedSwt_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWHiSpeedSwt_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器电机继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWMotorReInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWMotorReInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWMotorReInd_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器驻车开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWParkingSwt_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWParkingSwt_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWParkingSwt_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器在刮扫过程中停止</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWwipingStop_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWwipingStop_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWwipingStop_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器停在驻车位置</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWStopParking_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWStopParking_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WWStopParking_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">挡风玻璃刮水器开关</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='1'">点动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='2'">关闭</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='3'">低</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='4'">延迟</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='5'">高</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_WindWiperSwt_x_x=='6'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">前大灯洗涤器继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HeadWashReInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HeadWashReInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_HeadWashReInd_x_x=='3'">故障</span>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

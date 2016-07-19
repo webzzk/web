@@ -1,0 +1,37 @@
+
+<div class="fd-bg fd-b52a">
+    <div class="fd-zz" ng-click="backPage('engine',370,440)"></div>
+    <div class="b52a-head-install" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install=='1'"></div>
+    <div class="af000" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_B52A_Conn_x_Install','2','b52a')"></div>
+    <div class="b52a-head-out" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install=='0'" title="前氧传感器"></div>
+    <div class="af001" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install=='0'&&pageServicePdata.b52a_tearDown" ng-click="ctClose('In1Sen_B52A_Conn_x_Install','1','b52a')"></div>
+    <!--更换零件-->
+    <div class="b52a-light" status="bj-b52a" ng-show="!pageServicePdata.b52a_tearDown"></div>
+    <div id="mg-b52a" class="af014 oxygen" ng-click="showMsg('mg-b52a','请选择氧传感器专用套筒')" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install== '0'&&pageServicePdata.b52a_tearDown"></div>
+    <div class="af014 b52a_install" ng-show="!pageServicePdata.b52a_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-b52a-line" class="b52a-line-hot line" ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install== '0'" ></div>
+    <div class="b52a-line" status="bj-b52a-line"></div>
+<!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install== '0'">
+        <!--本体-->
+        <div ng-show="pageServicePdata.b52a_tearDown">
+            <a class="af010" title="1" wybredPosition="1" wybblackPosition="1" h_y="322" h_x="324" rqPosition="4075" h_href="b52a" ></a>
+            <a class="af011" title="2" wybredPosition="1" wybblackPosition="1" h_y="318" h_x="331" rqPosition="4076" h_href="b52a" ></a>
+            <a class="af012" title="3" wybredPosition="1" wybblackPosition="1" h_y="316" h_x="341" rqPosition="4077" h_href="b52a" ></a>
+            <a class="af013" title="4" wybredPosition="1" wybblackPosition="1" h_y="309" h_x="351" rqPosition="4078" h_href="b52a" ></a>
+        </div>
+        <!--插头-->
+        <a class="af006" title="1" wybredPosition="1" wybblackPosition="1" h_y="310" h_x="243" rqPosition="177" h_href="b52a" ></a>
+        <a class="af007" title="2" wybredPosition="1" wybblackPosition="1" h_y="303" h_x="252" rqPosition="179" h_href="b52a" ></a>
+        <a class="af008" title="3" wybredPosition="1" wybblackPosition="1" h_y="298" h_x="262" rqPosition="181" h_href="b52a" ></a>
+        <a class="af009" title="4" wybredPosition="1" wybblackPosition="1" h_y="293" h_x="271" rqPosition="183" h_href="b52a" ></a>
+    </div>
+    <div ng-show="pageServicePint.In1Sen_B52A_Conn_x_Install== '1'">
+        <!--本体背部-->
+        <a class="af002" title="1" wybredPosition="2" wybblackPosition="2" h_y="328" h_x="280" rqPosition="178" h_href="b52a" ></a>
+        <a class="af003" title="2" wybredPosition="2" wybblackPosition="2" h_y="322" h_x="289" rqPosition="180" h_href="b52a" ></a>
+        <a class="af004" title="3" wybredPosition="2" wybblackPosition="2" h_y="316" h_x="299" rqPosition="182" h_href="b52a" ></a>
+        <a class="af005" title="4" wybredPosition="2" wybblackPosition="2" h_y="309" h_x="308" rqPosition="184" h_href="b52a" ></a>
+    </div>
+</div>

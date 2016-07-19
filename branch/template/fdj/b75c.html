@@ -1,0 +1,76 @@
+<div class="fd-bg fd-b75c">
+    <div class="fd-zz" ng-click="backPage('engine',240,190)"></div>
+    <div class="b75c-head-install" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install=='1'"></div>
+    <div class="mf001" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install=='1'"
+         ng-click="ctOpen('In1Sen_B75C_Conn_x_Install','2','b75c')"></div>
+    <div class="b75c-head-out" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install=='0'"></div>
+    <div class="mf002" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install=='0'&&pageServicePdata.b75c_tearDown"
+         ng-click="ctClose('In1Sen_B75C_Conn_x_Install','1','b75c')"></div>
+    <!--更换零件-->
+    <div class="b75c-light" status="bj-b75c" ng-show="!pageServicePdata.b75c_tearDown"></div>
+    <div id="msg-b75c" class="mf000 bj-b75c"  sata="Ttype-T30" ng-click="showMsg('msg-b75c','请选择T30')" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install== '0'&&pageServicePdata.b75c_tearDown" title="空气流量计"></div>
+    <div  class="mf000 b75c_install" ng-show="!pageServicePdata.b75c_tearDown"></div>
+    <!--更换线束-->
+    <div id="bj-b75c-line" class="b75c-line-hot line" ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install== '0'" ></div>
+    <div class="b75c-line" status="bj-b75c-line"></div>
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="mf019" title="1" wybredPosition="1" wybblackPosition="1" h_y="565" h_x="393" rqPosition="89"
+           h_href="b75c"></a>
+        <a class="mf020" title="2" wybredPosition="1" wybblackPosition="1" h_y="556" h_x="393" rqPosition="91"
+           h_href="b75c"></a>
+        <a class="mf021" title="3" wybredPosition="1" wybblackPosition="1" h_y="546" h_x="393" rqPosition="93"
+           h_href="b75c"></a>
+        <a class="mf022" title="4" wybredPosition="1" wybblackPosition="1" h_y="536" h_x="393" rqPosition="95"
+           h_href="b75c"></a>
+        <a class="mf023" title="5" wybredPosition="1" wybblackPosition="1" h_y="526" h_x="393" rqPosition="97"
+           h_href="b75c"></a>
+        <a class="mf024" title="6" wybredPosition="1" wybblackPosition="1" h_y="516" h_x="393" rqPosition="99"
+           h_href="b75c"></a>
+        <a class="mf025" title="7" wybredPosition="1" wybblackPosition="1" h_y="506" h_x="393" rqPosition="101"
+           h_href="b75c"></a>
+        <a class="mf026" title="8" wybredPosition="1" wybblackPosition="1" h_y="496" h_x="393" rqPosition="103"
+           h_href="b75c"></a>
+        <!--插座-->
+        <div ng-show="pageServicePdata.b75c_tearDown">
+            <a class="mf011" title="1" wybredPosition="1" wybblackPosition="1" h_y="532" h_x="312" rqPosition="4083"
+               h_href="b75c"></a>
+            <a class="mf012" title="2" wybredPosition="1" wybblackPosition="1" h_y="539" h_x="309" rqPosition="4084"
+               h_href="b75c"></a>
+            <a class="mf013" title="3" wybredPosition="1" wybblackPosition="1" h_y="549" h_x="309" rqPosition="4085"
+               h_href="b75c"></a>
+            <a class="mf014" title="4" wybredPosition="1" wybblackPosition="1" h_y="558" h_x="310" rqPosition="4086"
+               h_href="b75c"></a>
+            <a class="mf015" title="5" wybredPosition="1" wybblackPosition="1" h_y="568" h_x="311" rqPosition="4087"
+               h_href="b75c"></a>
+            <a class="mf016" title="6" wybredPosition="1" wybblackPosition="1" h_y="576" h_x="313" rqPosition="4088"
+               h_href="b75c"></a>
+            <a class="mf017" title="7" wybredPosition="1" wybblackPosition="1" h_y="586" h_x="313" rqPosition="4089"
+               h_href="b75c"></a>
+            <a class="mf018" title="8" wybredPosition="1" wybblackPosition="1" h_y="595" h_x="315" rqPosition="4090"
+               h_href="b75c"></a>
+        </div>
+    </div>
+
+    <div ng-show="pageServicePint.In1Sen_B75C_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="mf003" title="1" wybredPosition="2" wybblackPosition="2" h_y="523" h_x="363" rqPosition="90"
+           h_href="b75c"></a>
+        <a class="mf004" title="2" wybredPosition="2" wybblackPosition="2" h_y="536" h_x="363" rqPosition="92"
+           h_href="b75c"></a>
+        <a class="mf005" title="3" wybredPosition="2" wybblackPosition="2" h_y="546" h_x="366" rqPosition="94"
+           h_href="b75c"></a>
+        <a class="mf006" title="4" wybredPosition="2" wybblackPosition="2" h_y="556" h_x="370" rqPosition="96"
+           h_href="b75c"></a>
+        <a class="mf007" title="5" wybredPosition="2" wybblackPosition="2" h_y="566" h_x="370" rqPosition="98"
+           h_href="b75c"></a>
+        <a class="mf008" title="6" wybredPosition="2" wybblackPosition="2" h_y="576" h_x="376" rqPosition="100"
+           h_href="b75c"></a>
+        <a class="mf009" title="7" wybredPosition="2" wybblackPosition="2" h_y="586" h_x="376" rqPosition="102"
+           h_href="b75c"></a>
+        <a class="mf010" title="8" wybredPosition="2" wybblackPosition="2" h_y="597" h_x="377" rqPosition="104"
+           h_href="b75c"></a>
+
+    </div>
+</div>

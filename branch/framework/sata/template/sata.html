@@ -1,0 +1,35 @@
+<div  ng-controller="sataCtrl">
+    <div id="sataTool" class="sataTool" ng-show="sataServiceOdata.sata">
+        <img src="images/sataTool/Etype.png" alt="世达工具"/>
+        <div class="clo" ng-click="sataToolsHide()"></div>
+        <div class="sata-hot" ng-show="sataServiceOdata.sata_hot"></div>
+        <div class="sataSize"></div>
+    </div>
+    <div  class="sata" ng-show="sataServiceOdata.menuStatus">
+        <div  class="coe1" ng-click="sataHide();"></div>
+        <div class="confirmBtn" ng-click="changeSata()"></div>
+        <div class="tool">
+            <ul id="toolsType" class="types">
+                <li id="E" ng-click="changeList('E','Etype')" class="select"><span><img src="framework/sata/images/Etype.png" alt="E型"/></span><span>E型</span></li>
+                <li id="H" ng-click="changeList('H','hexagonal')">
+                    <span><img src="framework/sata/images/hexagonal.png" alt="六角"/></span><span>六角</span></li>
+                <li id="D" ng-click="changeList('D','dodecagonal')"><span><img src="framework/sata/images/dodecagonal.png" alt="十二角"/></span><span>十二角</span></li>
+                <li id="A" ng-click="changeList('A','allenDriver')"><span><img src="framework/sata/images/allenDriver.png" alt="内六角"/></span><span>内六角</span></li>
+                <li id="T" ng-click="changeList('T','Ttype')"><span><img src="framework/sata/images/Ttype.png" alt="T型"/></span><span>T型</span></li>
+            </ul>
+            <div class="sizes">
+                <ul id="sataToolList"></ul>
+            </div>
+        </div>
+        <div class="images">
+            <img ng-src="images/sataTool/Etype.png"/>
+            <div class="num">E5</div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('.sizes').perfectScrollbar();
+    });
+</script>

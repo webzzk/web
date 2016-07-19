@@ -1,0 +1,61 @@
+<div class="header">
+    <div class="header1">小车匠诊断仪</div>
+    <div class="header2">汽车诊断/车身控制模块/读取数据流/车外照明2数据</div>
+</div>
+<div class="body">
+    <div class="obdscan-bottom-bell">
+        <div class="ac">左侧前大灯近光指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_LFHeadLowbeamInd_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">左侧近光/日间行车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_LFLowbeam_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">左后驻车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_LRParkingLampInd_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">驻车灯继电器指令</div>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingLampReInd_x_x=='1'">不活动</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingLampReInd_x_x=='2'">激活</span>
+        <span ng-show="obdscanServiceMout.Out1Veh_x_ParkingLampReInd_x_x=='3'">故障</span>
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">右侧前大灯近光指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_RFHeadLowbeamInd_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">右侧近光/日间行车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_RightLowbeam_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">右驻车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_RParkingInd_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">右后驻车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_RRParkingInd1_x_x | number:2"></span>
+        %
+    </div>
+    <div class="obdscan-bottom-bell">
+        <div class="ac">右后驻车灯指令</div>
+        <span ng-bind="obdscanServiceMout.Out1Veh_x_RRParkingInd2_x_x | number:2"></span>
+        %
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

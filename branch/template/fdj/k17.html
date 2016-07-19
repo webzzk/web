@@ -1,0 +1,29 @@
+<div class="fd-bg fd-k17">
+    <div class="fd-zz" ng-click="backPage('engine')"></div>
+    <div class="k17-head-install" ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install=='1'"></div>
+    <div class="abs100" ng-show="pageServicePint.In1Sen_B23E_Conn_x_Install=='1'" ng-click="ctOpen('In1Veh_K17J71_Conn_x_Install','2','k17')"></div>
+    <div class="k17-head-out" ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install=='0'"></div>
+    <div class="abs200" ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install=='0'&&pageServicePdata.k17_tearDown" ng-click="ctClose('In1Veh_K17J71_Conn_x_Install','1','k17')"></div>
+    <!--更换线束-->
+    <div id="bj-k17-line" class="k17-line-hot absline" ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install== '0'" ></div>
+    <div class="k17-line" status="bj-k17-line"></div>
+    <!--更换零件-->
+    <div class="k17-light" status="bj-k17" ng-show="!pageServicePdata.k17_tearDown"></div>
+    <div id="msg-k17" class="abs000 bj-k17" sata="Ttype-T25" ng-click="showMsg('msg-k17','请选择T25工具')" ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install== '0'&&pageServicePdata.k17_tearDown" title="电子制动控制模块"></div>
+    <div  class="abs000 k17_install" ng-show="!pageServicePdata.k17_tearDown"></div>
+
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Veh_K17J71_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="abs007" title="7" wybredPosition="1" wybblackPosition="1" h_y="527" h_x="396" rqPosition="3263" h_href="k17" ></a>
+        <a class="abs021" title="21" wybredPosition="1" wybblackPosition="1" h_y="522" h_x="424" rqPosition="3269" h_href="k17" ></a>
+        <a class="abs022" title="22" wybredPosition="1" wybblackPosition="1" h_y="514" h_x="414" rqPosition="3285" h_href="k17" ></a>
+        <a class="abs023" title="23" wybredPosition="1" wybblackPosition="1" h_y="506" h_x="403" rqPosition="3279" h_href="k17" ></a>
+        <a class="abs024" title="24" wybredPosition="1" wybblackPosition="1" h_y="497" h_x="392" rqPosition="3261" h_href="k17" ></a>
+        <a class="abs030" title="30" wybredPosition="1" wybblackPosition="1" h_y="451" h_x="326"  rqPosition="3291"  h_href="x160" ></a>
+        <a class="abs037" title="37" wybredPosition="1" wybblackPosition="1" h_y="485" h_x="402" rqPosition="3287" h_href="k17" ></a>
+        <a class="abs039" title="39" wybredPosition="1" wybblackPosition="1" h_y="500" h_x="423" rqPosition="3277" h_href="k17" ></a>
+        <a class="abs042" title="42" wybredPosition="1" wybblackPosition="1" h_y="525" h_x="455" rqPosition="3297" h_href="k17" ></a>
+    </div>
+    <!--<a id="abs" style="position: absolute;top: 0;left: 0;width: 100px;height: 20px;z-index:1000;color: black;background: yellowgreen"></a>-->
+    </div>

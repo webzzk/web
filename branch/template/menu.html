@@ -1,0 +1,412 @@
+<div style="position: relative; background: #f7f7f7;height:50px;">
+    <div class="logo"><img src="images/logo.png" width="91" height="35"/> </div>
+    <ul class="menu-nav">
+        <li name="repair" ng-click="maintainer('repair')" ng-class={selected:repair}>维修工单</li>
+        <li name="ljc" ng-click="menuLjc('ljc')" ng-class={selected:pageServicePdata.ljcCar}>零件车</li>
+        <li name="bjk" ng-click="menuBjk('bjk')" ng-class={selected:pageServicePdata.bjkCar}>备件库</li>
+        <li name="file" ng-click="repairFile('file')" ng-class={selected:isFile}>维修资料</li>
+        <li name="tools" ng-click="menuToolBox('tools')" ng-class={selected:pageServicePdata.toolBox}>维修工具</li>
+        <li name="switch" ng-click="menuSwitch('switch')" ng-class={selected:pageServicePdata.switchBox}>开关</li>
+    </ul>
+    <div class="right-menu">
+         <span class="help" ng-click="repairFile('file')">帮助</span> |
+         <span class="exite" ng-click="exitStudy()">关闭</span>
+    </div>
+    <div class="scene-menu" ng-click="changePage('scene')"></div>
+
+    <!--零件车-->
+    <div id="ljcBox"  class="ljc-car" ng-show="pageServicePdata.ljcCar">
+        <div class="ljc-prev" onclick="ljcPrevPage()"></div>
+        <ul  class="ljc-parts"  index="1" style="z-index: 32">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="2" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="3" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="4" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="5" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="6" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="7" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="8" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="9" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="10" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="11" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <ul class="ljc-parts"   index="12" style="z-index: 31">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="ljc-next" onclick="ljcNextPage()"></div>
+    </div>
+
+    <!--备件库-->
+    <div class="bjk-car" ng-show="pageServicePdata.bjkCar">
+        <ul class="bjk-tabs">
+            <li name="bjk-fdjpj" class="selected" ng-click="fdjParts('bjk-fdjpj')">发动机配件</li>
+            <li name="bjk-dpbj" ng-click="fdjParts('bjk-dpbj')">底盘备件</li>
+            <li name="bjk-csdqbj" ng-click="fdjParts('bjk-csdqbj')">车身电器备件</li>
+        </ul>
+        <div class="bjk-prev"  onclick="bjkPrevPage()"></div>
+        <div class="bjk-content">
+            <div class="bjk-fdjpj">
+                <ul class="bjk-parts" index="1" style="z-index: 2">
+
+                    <li title="Q38节气门体"><img src="images/bjk/bj_q38.png"  id="bj-q38"></li>
+                    <li title="B52A加热型前氧传感器"><img src="images/bjk/bj_b52a.png" id="bj-b52a"></li>
+                    <li title="B52B加热型后氧传感器"><img src="images/bjk/bj_b52b.png" id="bj-b52b"></li>
+                    <li title="B23E排气凸轮轴位置传感器"><img src="images/bjk/bj_b23e.png"  id="bj-b23e"></li>
+                    <li title="B23F进 气凸轮轴位置传感器"><img src="images/bjk/bj_b23f.png"   id="bj-b23f"></li>
+                    <li title="B74进气歧管压力传感器"><img src="images/bjk/bj_b74.png" id="bj-b74"></li>
+                    <li title="B75C多功能进气传感器"><img src="images/bjk/bj_b75c.png" id="bj-b75c"></li>
+
+                </ul>
+                <ul class="bjk-parts" index="2" style="z-index: 1">
+                    <li title="Q6E凸轮轴位置执行器电磁阀-排气"><img src="images/bjk/bj_q6e.png" id="bj-q6e"></li>
+                    <li title="Q6F凸轮轴位置执行器电磁阀-进气"><img src="images/bjk/bj_q6f.png"  id="bj-q6f"></li>
+                    <li title="Q12蒸发排放吹洗电磁阀"><img src="images/bjk/bj_q12.png"  id="bj-q12"></li>
+                    <li title="Q22进气歧管调节电磁阀"><img src="images/bjk/bj_q22.png"  id="bj-q22"></li>
+                    <li title="发动机电脑"><img src="images/bjk/bj_k20.png"  id="bj-k20"></li>
+                    <li title="发动机线束"><img src="images/bjk/bj_line.png"  id="bj-line"></li>
+                    <li title="点火线圈"><img src="images/bjk/bj_t8abcd.png"  id="bj-t8abcd"></li>
+                </ul>
+                <ul class="bjk-parts" index="3" style="z-index: 1">
+                    <li title="15A保险丝">
+                        <img src="images/bjk/bj_f12ua.png"  id="bj_f12ua">
+                        <img class="bxs_15" src="images/bjk/bj_f12ua.png"  id="bj_f13ua">
+                        <img class="bxs_15" src="images/bjk/bj_f12ua.png"  id="bj_f14ua">
+                        <img class="bxs_15" src="images/bjk/bj_f12ua.png"  id="bj_f15ua">
+                    </li>
+                    <li title="火花塞"><img src="images/bjk/bj_hhs.png"  id="bj-hhs" ></li>
+                    <li title="30A保险丝"><img src="images/bjk/bj_f3ua.png"  id="bj-f3ua"></li>
+                    <li title="7.5A保险丝"><img src="images/bjk/bj_f31ua.png"  id="bj-f31ua"></li>
+                    <li title="25A保险丝"><img src="images/bjk/bj_f20ua.png"  id="bj-f20ua"></li>
+                    <li title="50A保险丝"><img src="images/bjk/bj_f57ua.png"  id="bj-f57ua"></li>
+                    <li title="KR42车灯继电器"><img src="images/bjk/bj_kr42.png"  id="bj-kr42"></li>
+                </ul>
+                <ul class="bjk-parts" index="4" style="z-index: 1">
+
+                    <li title="KR48远光继电器"><img src="images/bjk/bj_kr48.png"  id="bj-kr48"></li>
+                    <li title="KR27启动继电器"><img src="images/bjk/bj_kr27.png"  id="bj-kr27"></li>
+                    <li title="B20制动液位开关"><img src="images/bjk/bj_b20.png"  id="bj-b20"></li>
+                    <li title="K17电子制动控制模块"><img src="images/bjk/bj_k17.png"  id="bj-k17"></li>
+                    <li title="B5LF左前轮速传感器"><img src="images/bjk/bj_b5rf.png"  id="bj-b5lf"></li>
+                    <li title="B5RF右前轮速传感器"><img src="images/bjk/bj_b5rf.png"  id="bj-b5rf"></li>
+                    <li title="B26曲轴位置传感器"><img src="images/bjk/bj_b26.png"  id="bj-b26"></li>
+                </ul>
+                <ul class="bjk-parts" index="5" style="z-index: 1">
+                    <li title="B34A冷却液温度传感器1"><img src="images/bjk/bj_b34a.png"  id="bj-b34a"></li>
+                    <li title="B34B冷却液温度传感器2"><img src="images/bjk/bj_b34b.png"  id="bj-b34b"></li>
+                    <li title="B68爆震传感器"><img src="images/bjk/bj_b68.png"  id="bj-b68"></li>
+                    <li title="E41冷却液节温器加热器"><img src="images/bjk/bj_e41.png"  id="bj-e41"></li>
+                    <li title="K111燃油泵驱动器控制模块"><img src="images/bjk/bj_k111.png"  id="bj-k111"></li>
+                    <li title="M64起动机"><img src="images/bjk/bj_m64.png"  id="bj-m64"></li>
+                    <li title="喷油器"><img src="images/bjk/bj_pyq.png"  id="bj-pyq"></li>
+                </ul>
+                <ul class="bjk-parts" index="6" style="z-index: 1">
+                    <li title="E13LA左前大灯"><img src="images/bjk/bj_e13la.png"  id="bj-e13la"></li>
+                    <li title="E13RA右前大灯"><img src="images/bjk/bj_e13ra.png"  id="bj-e13ra"></li>
+                    <li title="Q18燃油压力传感器"><img src="images/bjk/bj_q18.png"  id="bj-q18"></li>
+                    <li title="M79挡风玻璃刮水器电机"><img src="images/bjk/bj_m79.png"  id="bj-m79"></li>
+                    <li title="P12A低音喇叭"><img src="images/bjk/bj_p12a.png"  id="bj-p12a"></li>
+                    <li title="P12B高音喇叭"><img src="images/bjk/bj_p12b.png"  id="bj-p12b"></li>
+                    <li title="B37B机油压力传感器"><img src="images/bjk/bj_b37b.png"  id="bj-b37b"></li>
+                </ul>
+                <ul class="bjk-parts" index="7" style="z-index: 1">
+                    <li title="燃油导轨压力传感器"><img src="images/bjk/bj_b47b.png" id="bj-b47b"/></li>
+                    <li title="ABS线束"><img src="images/bjk/bj_absline.png" id="bj-absline"/></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="bjk-dpbj">
+                <ul class="bjk-parts" index="1" style="z-index: 2">
+                    <li title="B5LR左后轮速传感器"><img src="images/bjk/bj_b5lr.png"  id="bj-b5lr"></li>
+                    <li title="B5RR右后轮速传感器"><img src="images/bjk/bj_b5lr.png"  id="bj-b5rr"></li>
+                    <li title="M40后备箱锁"><img src="images/bjk/bj_m40.png"  id="bj-m40"></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="bjk-csdqbj">
+                <ul class="bjk-parts" index="1" style="z-index: 2">
+                    <li title="车身线束"><img src="images/bjk/bj_cs_line.png"  id="bj-cs-line"></li>
+                    <li title="30A保险丝"><img src="images/bjk/bj_f3ua.png"  id="bj-f5da"></li>
+                    <li title="20A保险丝"><img src="images/bjk/bj_20a.png"  id="bj-f31da"></li>
+                    <li title="7.5A保险丝"><img src="images/bjk/bj_f31ua.png"  id="bj-f8da"></li>
+                    <li title="10A保险丝"><img src="images/bjk/bj_f14da.png"  id="bj-f14da"></li>
+                    <li title="B22制动踏板"><img src="images/bjk/bj_b22.png"  id="bj-b22"></li>
+                    <li title="B107加速踏板"><img src="images/bjk/bj_b107.png"  id="bj-b107"></li>
+                </ul>
+                <ul class="bjk-parts" index="2" style="z-index: 1">
+
+                    <li title="S78转向信号/多功能开关"><img src="images/bjk/bj_s78.png"  id="bj-s78"></li>
+                    <li title="S82雨刷器开关"><img src="images/bjk/bj_s82.png"  id="bj-s82"></li>
+                    <li title="S13D车门锁闩开关"><img src="images/bjk/bj_s13d.png"  id="bj-s13d"></li>
+                    <li title="S79D车窗开关"><img src="images/bjk/bj_s79d.png"  id="bj-s79d"></li>
+                    <li title="K9车身控制模块"><img src="images/bjk/bj_k9.png"  id="bj-k9"></li>
+                    <li title="S30大灯开关"><img src="images/bjk/bj_s30.png"  id="bj-s30"></li>                                                                                        <li title="A23RR右后车门锁闩总成"><img src="images/bjk/bj_a23rr.png"  id="bj-a23rr"></li>
+                </ul>
+                <ul class="bjk-parts" index="3" style="z-index: 1">
+                    <li title="S58B行李箱锁闩开关"><img src="images/bjk/bj_s58b.png"  id="bj-s58b"></li>
+                    <li title="组合仪表"><img src="images/bjk/bj_zhyb.png"  id="bj-zhyb"></li>
+                    <li title="方向盘"><img src="images/bjk/bj_fxp.png"  id="bj-fxp"></li>
+                    <li title="A23D驾驶员车门锁闩总成"><img src="images/bjk/bj_ar23d.png"  id="bj-ar23d"></li>
+                    <li title="A23P乘客车门锁闩总成"><img src="images/bjk/bj_a23p.png"  id="bj-a23p"></li>
+                    <li title="M74D车窗电机"><img src="images/bjk/bj_m74d.png"  id="bj-m74d"></li>
+                    <li title=A23LR左后车门锁闩总成"><img src="images/bjk/bj_a23lr.png"  id="bj-a23lr"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bjk-next" onclick="bjkNextPage()"></div>
+    </div>
+
+    <!--维修工具-->
+    <div class="tool-box" ng-show="pageServicePdata.toolBox">
+        <ul class="tool-tabs">
+            <li name="tool-cygj" class="selected" ng-click="toolsSubMenu('tool-cygj')">常用工具</li>
+            <li name="tool-cyyq" ng-click="toolsSubMenu('tool-cyyq')">常用仪器</li>
+            <li name="tool-zygj" ng-click="toolsSubMenu('tool-zygj')">专用工具</li>
+        </ul>
+        <div class="tool-prev"></div>
+        <div class="tool-content">
+            <div class="tool-cygj">
+                <ul index="1" style="z-index: 6">
+                    <li ng-controller="sparkplugCtrl"><img src="images/sparkplug.png" id="sparkplug"  ng-click="sparkplug();toolsStatus('sparkplug',$event.target)" width="62" height="62"/> </li>
+                    <li ng-controller="sataCtrl"><img src="images/sataTool.png" id="sata"  ng-click="sata();toolsStatus('sataTool',$event.target)" width="62" height="62"/></li>
+
+                </ul>
+            </div>
+            <div class="tool-cyyq">
+                <ul index="1" style="z-index: 6">
+                    <li ng-controller="obdscanCtrl"><img src="images/obdscan.png" id="obdsan"  ng-click="obdscan();toolsStatus('obdscan',$event.target)" width="62" height="62"/> </li>
+                    <li ng-controller="cylpressguageCtrl"><img src="images/cylinder.png" id="cylpressguage"  ng-click="cylpressguage();toolsStatus('cylinder',$event.target)" width="62" height="62"/></li>
+                    <li ng-controller="multimeterCtrl"><img src="images/multimeter.png" id="multimeter"  ng-click="multimeter();toolsStatus('multimeter',$event.target)" width="62" height="62"/></li>
+                    <li ng-controller="diodelampCtrl"><img src="images/diodelamp.png" id="diodelamp"  ng-click="diodelamp();toolsStatus('diodelamp',$event.target)" width="62" height="62"/></li>
+                    <li ng-controller="oscilloscopeCtrl"><img src="images/oscilloscope.png" id="oscilloscope"  ng-click="oscilloscope();toolsStatus('oscilloscope',$event.target)" width="62" height="62"/></li>
+                </ul>
+            </div>
+            <div class="tool-zygj">
+                <ul index="1" style="z-index: 6">
+                    <li ng-controller="oxygenCtrl">
+                        <img src="images/oxygen.png" id="oxygen"  ng-click="oxygen();toolsStatus('oxygen',$event.target)" width="62" height="62"/>
+                    </li>
+                    <li ng-controller="ignltionTestDeviceCtrl">
+                        <img src="images/ignltionTestDevice.png" id="ignltionTestDevice" ng-click="ignltionTestDevice();toolsStatus('ignltionTestDevice',$event.target)" width="62" height="62" alt="点火测试仪"/>
+                    </li>
+                    <!--<li></li>-->
+                </ul>
+            </div>
+
+        </div>
+        <div class="tool-next"></div>
+    </div>
+
+    <!--开关-->
+    <div class="switch-box" ng-show="pageServicePdata.switchBox">
+        <div class="switch-prev" ng-click="switchPage='1'"></div>
+        <div ng-switch="switchPage">
+            <ul ng-switch-default="1" index="1" class="switch-parts">
+                <li ng-controller="switchCtrl"><div class="enable" ng-show="!pageServicePdata.s30swt"></div><img src="images/s30swt.png" id="s30swt"  ng-click="switchInt('s30swt');toolsStatus('s30swt',$event.target)" width="60" height="60" alt="大灯开关"/></li>
+                <li ng-controller="switchCtrl"><div class="enable" ng-show="!pageServicePdata.s82swt"></div><img src="images/s82swt.png" id="s82swt"  ng-click="switchInt('s82swt');toolsStatus('s82swt',$event.target)" width="60" height="60" alt="雨刷开关"/></li>
+                <li ng-controller="switchCtrl"><div class="enable" ng-show="!pageServicePdata.s13d"></div><img src="images/s13d.png" id="s13d"  ng-click="switchInt('s13d');toolsStatus('s13d',$event.target)" width="60" height="60" alt="车门开关"/></li>
+                <li ng-controller="switchCtrl"><div class="enable" ng-show="!pageServicePdata.s33"></div><img src="images/s33.png" id="s33"  ng-click="switchInt('s33');toolsStatus('s33',$event.target)" width="60" height="60" alt="车门开关"/></li>
+            </ul>
+            <ul ng-switch-when="2" index="2" class="switch-parts">
+                <li ng-controller="switchCtrl"><div class="enable"  ng-show="!pageServicePdata.s58b"></div><img src="images/s58b.png" id="s58b"  ng-click="switchInt('s58b');toolsStatus('s58b',$event.target)" width="60" height="60" alt="后备箱开关"/></li>
+                <li ng-controller="switchCtrl"><div class="enable"  ng-show="!pageServicePdata.s78swt"></div><img src="images/s78swt.png" id="s78swt"  ng-click="switchInt('s78swt');toolsStatus('s78swt',$event.target)" width="60" height="60" alt="变换灯光开关"/></li>
+                <li ng-controller="switchCtrl"><div class="enable"  ng-show="!pageServicePdata.s79d"></div><img src="images/s79d.png" id="s79d"  ng-click="switchInt('s79d');toolsStatus('s79d',$event.target)" width="60" height="60" alt="车窗开关"/></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="switch-next" ng-click="switchPage='2'"></div>
+    </div>
+
+
+</div>
+
+<ng-include src="'framework/multimeter/template/multimeterSvg.html'"></ng-include>
+<ng-include src="'framework/oscilloscope/template/oscilloscopeSvg-2.html'"></ng-include>
+<script type="text/javascript">
+    var i=1,y=0;
+    var z=0;
+        /*零件车前一页*/
+
+        function ljcPrevPage(){
+            if(y>1){
+                y--;
+                $("#ljcBox>ul")[y-1].style.zIndex = 32;
+                $("#ljcBox>ul")[y].style.zIndex = 31;
+                console.log(y);
+            }
+            y < 11  && $(".ljc-next").css("background","url(images/index/next.png)");
+            y == 1 && $(".ljc-prev").css("background","url(images/index/prev_false.png)");
+
+            /*if(y>1&&y<13){
+                y=y-1;
+                if(y==1){
+                    $(".ljc-prev").css("background-image","url(images/index/prev_false.png)");
+                }
+                else{
+                    $(".ljc-next").css("background-image","url(images/index/next.png)");
+                }
+                $(".ljc-car ul[index='"+y+"']").css("z-index",
+                        function(){
+                            if(y==1){return 2;}
+                            else{ return y;}
+                        }
+                );
+                $(".ljc-car ul[index="+y+"]").siblings().css("z-index",1);
+            }*/
+    }
+    /*零件车后一页*/
+
+    function ljcNextPage() {
+
+        if(y<12-1){//&&z>7
+            y++;
+            $("#ljcBox>ul")[y-1].style.zIndex = 32;
+//            if($("#ljcBox li:empty").length < 84-7){
+//                //$("#ljcBox>ul")[y-2].style.zIndex = 31;
+//            }
+            y > 1 && $(".ljc-prev").css("background","url(images/index/prev.png)");
+
+            y == 11 && $(".ljc-next").css("background","url(images/index/next_false.png)");
+        }
+
+    }
+
+
+       //备件库
+       var bjkType="bjk-fdjpj";//备件库部件分类
+       /*备件库前一页*/
+       function bjkPrevPage(){
+           if(i>1&&i<=7){
+               i=i-1;
+               if(i==1){
+                   $(".bjk-prev").css("background-image","url(images/index/prev_false.png)");
+               }
+               else{
+                   $(".bjk-next").css("background-image","url(images/index/next.png)");
+               }
+               $("."+bjkType+" ul[index='"+i+"']").css("z-index",
+                       function(){
+                           if(i==1){return 2;}
+                           else{ return i;}
+                       }
+               );
+               $("."+bjkType+" ul[index="+i+"]").siblings().css("z-index",1);
+           }
+       };
+       /* 备件库下页面*/
+       function bjkNextPage() {
+           if (i > 0 && i < 7) {
+               i = i + 1;
+               $("." + bjkType + " ul[index=" + i + "]").css("z-index", i);
+               $("." + bjkType + " ul[index=" + i + "]").siblings().css("z-index", 1);
+           }
+           if (i == 7) {
+               $(".bjk-next").css("background-image", "url(images/index/next_false.png)");
+           }
+           if (i != 0) {
+               $(".bjk-prev").css("background-image", "url(images/index/prev.png)");
+           }
+       }
+
+
+
+
+</script>

@@ -1,0 +1,34 @@
+<div class="fd-bg fd-b37b">
+    <div class="fd-zz" ng-click="backPage('fdjx')"></div>
+    <div class="b37b-head-install" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install=='1'"></div>
+    <div class="ops001" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install=='1'" ng-click="ctOpen('In1Sen_B37B_Conn_x_Install','2','b37b')"></div>
+    <div class="b37b-head-out" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install=='0'"></div>
+    <div class="ops002" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install=='0'&&pageServicePdata.b37b_tearDown" ng-click="ctClose('In1Sen_B37B_Conn_x_Install','1','b37b')"></div>
+    <!--更换线束-->
+    <div id="bj-b37b-line"  class="b37b-line-hot line" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install== '0'" ></div>
+    <div class="b37b-line" status="bj-b37b-line"></div>
+    <!--更换零件-->
+    <div class="b37b-light" status="bj-b37b" ng-show="!pageServicePdata.b37b_tearDown"></div>
+    <div id="msg-b37b" class="ops000 bj-b37b" sata="hexagonal-10mm" ng-click="showMsg('msg-b37b','请选择10MM六角套筒')" ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install== '0'&&pageServicePdata.b37b_tearDown" title="制动液位控制开关"></div>
+    <div  class="ops000 b37b_install" ng-show="!pageServicePdata.b37b_tearDown"></div>
+
+    <!--万用表交互热区-->
+    <div ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install== '0'">
+        <!--插头-->
+        <a class="ops003" title="1" wybredPosition="1" wybblackPosition="1" h_y="535" h_x="469" rqPosition="2187" h_href="b37b" ></a>
+        <a class="ops004" title="2" wybredPosition="1" wybblackPosition="1" h_y="500" h_x="467" rqPosition="2189" h_href="b37b" ></a>
+        <a class="ops005" title="3" wybredPosition="1" wybblackPosition="1" h_y="459" h_x="464" rqPosition="2191" h_href="b37b" ></a>
+        <!--插座-->
+        <a class="ops006" title="1" wybredPosition="1" wybblackPosition="1" h_y="564" h_x="224" rqPosition="4146" h_href="b37b" ></a>
+        <a class="ops007" title="2" wybredPosition="1" wybblackPosition="1" h_y="569" h_x="192" rqPosition="4147" h_href="b37b" ></a>
+        <a class="ops008" title="3" wybredPosition="1" wybblackPosition="1" h_y="581" h_x="157" rqPosition="4148" h_href="b37b" ></a>
+
+    </div>
+    <div ng-show="pageServicePint.In1Sen_B37B_Conn_x_Install== '1'">
+        <!--插头背部-->
+        <a class="ops009" title="1" wybredPosition="2" wybblackPosition="2" h_y="543" h_x="300" rqPosition="2188" h_href="b37b" ></a>
+        <a class="ops010" title="2" wybredPosition="2" wybblackPosition="2" h_y="539" h_x="276" rqPosition="2190" h_href="b37b" ></a>
+        <a class="ops011" title="3" wybredPosition="2" wybblackPosition="1" h_y="540" h_x="274" rqPosition="2192" h_href="b37b" ></a>
+    </div>
+
+</div>

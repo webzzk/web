@@ -1,0 +1,80 @@
+
+.diodelamp-pen{
+	position: absolute;
+	width: 66px;
+	height: 263px;
+	top: 188px;
+	left: 750px;
+	background: url("../images/diodelamp_pen.png") no-repeat;
+	z-index: 31;
+}
+
+.diodelamp .coe{ width:44px;
+	height:44px;
+	text-align:right;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	font-size:18px;
+	color:#fff;
+	cursor:pointer;
+	z-index: 1112;
+	background: url(../images/close.png) no-repeat center center;
+}
+.diodelamp-lamp{
+	position:absolute;
+	width: 22px;
+	height: 26px;
+	top: 119px;
+	left: 18px;
+}
+
+.diodelamp-clip{
+	position:absolute;
+	width: 112px;
+	height: 65px;
+	top:120px;
+	left: 810px;
+	background: url("../images/diodelamp_clip.png") no-repeat;
+	z-index: 31;
+}
+.diodelamp-go{
+	position:absolute;
+	width: 20px;
+	height: 20px;
+	top:23px;
+	left: 10px;
+	background: red;
+	opacity: 0;
+	z-index: 32;
+}
+
+#diodelamp-svg{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 5;
+}
+
+.diodelamp_needle_hot{
+	position: absolute;
+	top: 432px;
+	left: 753px;
+	width: 20px;
+	height: 20px;
+	background: #000;
+	opacity: 0;
+	cursor: move;
+	z-index: 32;
+}
+
+.diodelamp-tishi{
+	position: absolute;
+	top: 229px;
+	left: 4px;
+	width: 26px;
+	height: 29px;
+	background: url("../images/diodelamp_tishi.png");
+	z-index: 31;
+	display: none;
+}
